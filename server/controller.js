@@ -15,10 +15,10 @@ module.exports={
         .findByIdAndDelete(req.params.id)
         .then(deleted=>console.log("deleted") ||res.json(deleted))
         .catch(err=>console.log(err) || res.json(err)),
-    orgdetails:(req, res) => Orgs
+    orgDetails:(req, res) => Orgs
         .findById(req.params.id).then(one=>console.log(aAuthor) || res.json(one))
         .catch(err=>console.log(err) || res.json(err)),
-    update: (req, res) => Orgs
+    orgUpdate: (req, res) => Orgs
         .findByIdAndUpdate(req.params.id,req.body,{new: true})
         .then(updated =>console.log("updated",updated)||res.json(updated))
         .catch(err=>console.log(err) || res.json(err))
