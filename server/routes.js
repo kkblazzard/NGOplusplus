@@ -1,9 +1,9 @@
 const controller=require('./controller');
 module.exports=function(app){
     app
-        .get('/api/authors', controller.authors)
-        .post('/api/authors', controller.new)
-        .get('/api/authors/:id', controller.details)
-        .put('/api/authors/:id', controller.update)
-        .delete('/api/authors/:id', controller.remove)
+        .get('/api/org', controller.authors)
+        .post('/api/org', controller.new)
+        .get('/api/org/:id', controller.details)
+        .put('/api/org/:id', controller.update)
+        .delete('/api/org/:id', controller.remove)
     }
