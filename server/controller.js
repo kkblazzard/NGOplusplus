@@ -1,25 +1,25 @@
-const Authors=require('./models');
+const Orgs=require('./models');
 module.exports={
-    authors: (req, res)=>Authors
-        .find().then(allAuthors=>console.log(allAuthors) || res.json(allAuthors))
+    orgAll: (req, res)=>Orgs
+        .find().then(all=>console.log(all) || res.json(all))
         .catch(err=>console.log(err)|| res.json(err)),
-    new: (req, res) => {
+    orgNew: (req, res) => {
         console.log("entered new controller", req.body);
-        Authors
+        Orgs
         .create(req.body)
-        .then(console.log("created in controller",req.body))
-        .then(res.json(req.body))
+        .then(anew=>console.log("created in controller",anew))
+        .then(res.json(anew))
         .catch(err=>console.log(err) || res.json(err))
     },
-    remove: (req, res) => Authors
+    orgRemove: (req, res) => Orgs
         .findByIdAndDelete(req.params.id)
-        .then(console.log("deleted") ||res.json("deleted"))
+        .then(deleted=>console.log("deleted") ||res.json(deleted))
         .catch(err=>console.log(err) || res.json(err)),
-    details:(req, res) => Authors
-        .findById(req.params.id).then(aAuthor=>console.log(aAuthor) || res.json(aAuthor))
+    orgdetails:(req, res) => Orgs
+        .findById(req.params.id).then(one=>console.log(aAuthor) || res.json(one))
         .catch(err=>console.log(err) || res.json(err)),
-    update: (req, res) => Authors
+    update: (req, res) => Orgs
         .findByIdAndUpdate(req.params.id,req.body,{new: true})
-        .then(aAuthor =>console.log(aAuthor)||res.json(aAuthor))
+        .then(updated =>console.log("updated",updated)||res.json(updated))
         .catch(err=>console.log(err) || res.json(err))
 }
