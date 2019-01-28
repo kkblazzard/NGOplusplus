@@ -12,7 +12,7 @@ import { OrgdetailsComponent } from './orgdetails/orgdetails.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
     OrgregComponent,
     OrgdetailsComponent
   ],
