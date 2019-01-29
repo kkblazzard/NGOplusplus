@@ -13,35 +13,37 @@ export class OrgregComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router) { }
     Errors:any;
-  newOrg:any="";
-  step1:boolean=true;
-  step2:boolean=false;
-  step3:boolean=false;
-  step:string="1";
-  completed:any;
-  ngOnInit() {
-    this.newOrg={
-      name:"", 
-      mission:"",
-      ein: Number,
-      phone:"",
-      email:"",  
-      logo:"", 
-      admins:[], 
-      events:[], 
-      webAddress:"", 
-      fbAddress:"", 
-      twAddress:"",
-      street:"",
-      city:"", 
-      state:"", 
-      zip:Number,
-    };
+    newOrg:any="";
+    id:any;
+    step1:boolean=true;
+    step2:boolean=false;
+    step3:boolean=false;
+    step:string="1";
+    completed:any;
+    ngOnInit() {
+      this.newOrg={
+        name:"", 
+        mission:"",
+        ein: Number,
+        phone:"",
+        email:"",  
+        logo:"", 
+        admins:[], 
+        events:[], 
+        webAddress:"", 
+        fbAddress:"", 
+        twAddress:"",
+        street:"",
+        city:"", 
+        state:"", 
+        zip:Number,
+      };
   }
   newOrgSubmission(){
     console.log(this.newOrg);
     this._httpService.addOrg(this.newOrg)
     .subscribe(data=>{
+      this.id=data["id"];
       console.log("new org added to db",data);
       if (data['errors']){
         this.Errors = data['errors'];
@@ -54,7 +56,7 @@ export class OrgregComponent implements OnInit {
     });
   }
   godetails(){
-    this._router.navigate(['orgs/details']);
+    this._router.navigate(['orgs/details/:id']);
   }
   step1switch(){
     this.step1=true;
