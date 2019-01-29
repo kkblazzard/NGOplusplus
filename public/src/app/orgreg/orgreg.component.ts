@@ -79,5 +79,3 @@ export class OrgregComponent implements OnInit {
     this.step="3";
   }
 }
-
-console.log('testing');

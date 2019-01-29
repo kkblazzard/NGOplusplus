@@ -20,5 +20,6 @@ module.exports={
     orgUpdate: (req, res) => Orgs
         .findByIdAndUpdate(req.params.id,req.body,{new: true})
         .then(updated =>console.log("updated",updated)||res.json(updated))
-        .catch(err=>console.log(err) || res.json(err))
+        .catch(err=>console.log(err) || res.json(err)),
+        
 }
