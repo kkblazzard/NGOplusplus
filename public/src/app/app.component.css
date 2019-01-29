@@ -6,5 +6,8 @@ h1{
 
 .topnavbar{
     display: inline-block;
-    margin-left: 50%;
+}
+
+.logo{
+    height: 150px;
 }
