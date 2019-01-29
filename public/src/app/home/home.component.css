@@ -1,0 +1,8 @@
+.mainImg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+    height: auto;
+    border-radius: 5px;
+}
