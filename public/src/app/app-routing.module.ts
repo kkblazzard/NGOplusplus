@@ -7,6 +7,7 @@ import { FindOrgComponent } from './find-org/find-org.component';
 import { FindEventComponent } from './find-event/find-event.component';
 import { EventCreateComponent } from './event-create/event-create.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { LogregComponent } from './logreg/logreg.component';
 
 const routes: Routes = [
 
@@ -15,9 +16,10 @@ const routes: Routes = [
   {path: "orgs/details/:id", component: OrgdetailsComponent},
   {path: "orgs/registration", component: OrgregComponent},
   {path: "orgs/find", component: FindOrgComponent},
-  {path: "find/event", component: FindEventComponent},
-  {path: "event", component: EventCreateComponent},
-  {path: "event/find", component: EventDetailsComponent},
+  {path: "event/find", component: FindEventComponent},
+  {path: "event/new", component: EventCreateComponent},
+  {path: "event/:id", component: EventDetailsComponent},
+  {path: "user", component: LogregComponent},
   {path:'**', redirectTo:'home'},
 ];
 

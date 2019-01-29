@@ -12,6 +12,7 @@ import { FindOrgComponent } from './find-org/find-org.component';
 import { FindEventComponent } from './find-event/find-event.component';
 import { EventCreateComponent } from './event-create/event-create.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { LogregComponent } from './logreg/logreg.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EventDetailsComponent } from './event-details/event-details.component';
     FindOrgComponent,
     FindEventComponent,
     EventCreateComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    LogregComponent
   ],
   imports: [
     BrowserModule,
