@@ -13,19 +13,34 @@ export class OrgdetailsComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router) { }
     id:any;
+    org:any;
   ngOnInit() {
+    this.org={name:"", 
+    mission:"",
+    ein: Number, 
+    logo:"", 
+    admins:[], 
+    events:[], 
+    webAddress:"", 
+    fbAddress:"", 
+    twAddress:"",
+    street:"",
+    city:"", 
+    state:"", 
+    zip:Number,
+    };
     this._route.params.subscribe((params: Params) => {
       console.log(params['id'])
       this.id=params['id'];
-      this.getOrg()
+      this.org=this.getOrg()
     });
   }
-  getaAuthor(){
+  getOrg(){
     this._httpService.getOrg(this.id)
-    .subscribe(Author=>{
-      console.log("pulled a author from db",Author);
-      this.author=Author;
-      console.log("Author",this.author)
+    .subscribe(org=>{
+      console.log("pulled a Org from db",org);
+      this.org=org;
+      console.log("Org",this.org)
     });
   };
 }
