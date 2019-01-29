@@ -13,11 +13,13 @@ export class OrgdetailsComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router) { }
     id:any;
-    org:any;
+    org:any="";
   ngOnInit() {
     this.org={name:"", 
     mission:"",
-    ein: Number, 
+    ein: Number,
+    phone:"",
+    email:"", 
     logo:"", 
     admins:[], 
     events:[], 
@@ -30,7 +32,7 @@ export class OrgdetailsComponent implements OnInit {
     zip:Number,
     };
     this._route.params.subscribe((params: Params) => {
-      console.log(params['id'])
+      console.log("incoming id ",params['id'])
       this.id=params['id'];
       this.org=this.getOrg()
     });

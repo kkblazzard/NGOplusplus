@@ -15,7 +15,7 @@ module.exports={
         .then(deleted=>console.log("deleted") ||res.json(deleted))
         .catch(err=>console.log(err) || res.json(err)),
     orgDetails:(req, res) => Orgs
-        .findById(req.params.id).then(one=>console.log(aAuthor) || res.json(one))
+        .findById(req.params.id).then(one=>console.log(one) || res.json(one))
         .catch(err=>console.log(err) || res.json(err)),
     orgUpdate: (req, res) => Orgs
         .findByIdAndUpdate(req.params.id,req.body,{new: true})
