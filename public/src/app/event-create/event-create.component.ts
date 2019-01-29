@@ -15,6 +15,10 @@ export class EventCreateComponent implements OnInit {
     Errors:any;
     newEvent:any;
     id:any;
+    step1:boolean=true;
+    step2:boolean=false;
+    step3:boolean=false;
+    step:string="1";
   ngOnInit() {
     this.newEvent={
       title:"",
@@ -48,5 +52,22 @@ export class EventCreateComponent implements OnInit {
   }
   godetails(){
     this._router.navigate(['events/:id']);
+  }
+  step1switch(){
+    this.step1=true;
+    this.step2=false;
+    this.step="1";
+
+  }
+  step2switch(){
+    this.step2=true;
+    this.step1=false;
+    this.step3=false;
+    this.step="2";
+  }
+  step3switch(){
+    this.step2=false;
+    this.step3=true;
+    this.step="3";
   }
 }
