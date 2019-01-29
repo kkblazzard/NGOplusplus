@@ -18,13 +18,35 @@ export class EventCreateComponent implements OnInit {
   ngOnInit() {
     this.newEvent={
       title:"",
-      date:"",
+      date:Date,
+      ampm:"",
       time:"",
-      location:"",
+      street:"",
+      city:"",
+      state:"",
+      zip:"",
       host:[],
       photo:"",
       details:""
     }
   }
-
+  newEventSubmission(){
+    console.log(this.newEvent);
+    this._httpService.addEvent(this.newEvent)
+    .subscribe(data=>{
+      this.id=data["id"];
+      console.log("new org added to db",data);
+      if (data['errors']){
+        this.Errors = data['errors'];
+          console.log("This is data['errors']");
+          console.log(data['errors'])
+      }
+      else{
+        this.godetails();
+      }
+    });
+  }
+  godetails(){
+    this._router.navigate(['events/:id']);
+  }
 }
