@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: "orgs/registration", component: OrgregComponent},
   {path: "orgs/find", component: FindOrgComponent},
   {path: "event/find", component: FindEventComponent},
-  {path: "event/new", component: EventCreateComponent},
+  {path: "event/new/:id", component: EventCreateComponent},
   {path: "event/:id", component: EventDetailsComponent},
   {path: "user", component: LogregComponent},
   {path:'**', redirectTo:'home'},
