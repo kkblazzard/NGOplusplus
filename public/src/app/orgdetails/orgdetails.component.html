@@ -1,4 +1,4 @@
-<div> 
+<div *ngIf="org"> 
   <img [src]="org.logo">
   <h1>{{org.name}}</h1>
   <h2>Our Mission:</h2>
@@ -9,7 +9,7 @@
 
 
 
-<footer>
+<footer *ngIf="org">
   <h6>{{org.street}}</h6>
   <h6>{{org.city}}, {{org.state}} {{org.zip}}</h6>
 </footer>
