@@ -1,3 +1,84 @@
-<p>
-  orgreg works!
-</p>
+<h1>Org Reg</h1>
+
+  
+<div class="form">
+    
+      <br>
+      <br>
+<form (submit)="newOrg()" class="postForm">
+  <div *ngIf="step1==true">
+    <label>Organisation Name:</label>
+    <br>
+    <input type="text" name="newOrg.name" [(ngModel)]="newOrg.name">
+    <br>
+    <br>
+    
+    <label>Organisation EIN:</label>
+    <br>
+    <input type="number" name="newOrg.ein" [(ngModel)]="newOrg.ein">
+    <br>
+    <br>
+    <label>Mission Statment:</label>
+    <br>
+    <textarea class="mission" type="text" name="newOrg.mission" [(ngModel)]="newOrg.mission"></textarea>
+    
+    <br>
+    <br>
+    <button (click)="step2switch()">Next</button>
+  </div>
+  <div *ngIf="step2==true">
+      <label>Organisation Street Address:</label>
+      <br>
+      <input type="text" name="newOrg.street" [(ngModel)]="newOrg.street">
+      <br>
+      <br>
+      <label>Organisation City:</label>
+      <br>
+    <input type="text" name="newOrg.city" [(ngModel)]="newOrg.city">
+    <br>
+    <br>
+    <label>Organisation State:</label>
+    <br>
+    <input type="text" name="newOrg.state" [(ngModel)]="newOrg.state">
+    <br>
+    <br>
+    <label>Organisation Zip:</label>
+    <br>
+    <input type="number" name="newOrg.zip" [(ngModel)]="newOrg.zip">
+    <br>
+    <br>
+    <button (click)="step1switch()">Previous</button>
+    <button (click)="step3switch()">Next</button>
+  </div>
+  <div *ngIf="step3==true">
+    <label>Logo Image</label>
+    <br>
+    <input type="string" name="newOrg.logo" [(ngModel)]="newOrg.logo">
+    <br>
+    <br>
+    <label>Website Address</label>
+    <br>
+    <input type="string" name="newOrg.webAddress" [(ngModel)]="newOrg.webAddress">
+    <br>
+    <br>
+    <label>Facebook Address</label>
+    <br>
+    <input type="string" name="newOrg.fbAddress" [(ngModel)]="newOrg.fbAddress">
+    <br>
+    <br>
+    <label>Twitter Address</label>
+    <br>
+    <input type="string" name="newOrg.twAddress" [(ngModel)]="newOrg.twAddress">
+    <br>
+    <button (click)="step2switch()">Previous</button>
+    <button type="submit" >Submit</button>
+    
+  </div>
+  
+  
+</form>
+<br>
+    <div class="myProgress">Step {{step}} of 3
+        <div class="myBar"></div>
+      </div>
+</div>
