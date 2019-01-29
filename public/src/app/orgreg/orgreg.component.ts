@@ -23,7 +23,9 @@ export class OrgregComponent implements OnInit {
     this.newOrg={
       name:"", 
       mission:"",
-      ein: Number, 
+      ein: Number,
+      phone:"",
+      email:"",  
       logo:"", 
       admins:[], 
       events:[], 

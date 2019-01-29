@@ -12,7 +12,7 @@ export class HttpService {
       
     }
     getOrg(id){
-      console.log(id);
+      console.log("httpService",id);
       return this._http.get(`/api/orgs/${id}`);
     }
     deleteOrg(id){

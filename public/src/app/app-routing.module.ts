@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: "orgs/details/:id", component: OrgdetailsComponent},
   {path: "orgs/registration", component: OrgregComponent},
+  {path:'**', redirectTo:'home'},
 ];
 
 @NgModule({

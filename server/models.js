@@ -5,6 +5,8 @@ mongoose.connect('mongodb://localhost:27017/NGOplusplusdb', function(err){
 var orgSchema = new mongoose.Schema({
         name:{type: String, required:true, minlength:4},
         mission:{type:String},
+        phone:{type:String},
+        email:{type:String}, 
         logo:{type:String},
         admins:[{userId:String}],
         events:[{eventId:String}],
