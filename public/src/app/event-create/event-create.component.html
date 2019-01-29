@@ -1,0 +1,9 @@
+<div class="title"><h1>Create an Event</h1></div>
+
+<div class="form">
+  <form (submit)="newEvent()" class="postForm">
+    <label>Title</label>
+    <input type="text" name=newEvent.title [(ngModel)]="newEvent.title">
+
+  </form>
+</div>
