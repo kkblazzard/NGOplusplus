@@ -26,5 +26,9 @@ export class HttpService {
       console.log("in http.service.update", orgUpdate);
       return this._http.put('/api/orgs/'+id,orgUpdate);
     }
+    addEvent(newEvent){
+      console.log("in httpService addEvent",newEvent);
+      return this._http.post('/api/events',newEvent);
+    }
 }
 

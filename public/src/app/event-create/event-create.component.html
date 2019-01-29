@@ -1,9 +1,34 @@
 <div class="title"><h1>Create an Event</h1></div>
 
 <div class="form">
-  <form (submit)="newEvent()" class="postForm">
-    <label>Title</label>
-    <input type="text" name=newEvent.title [(ngModel)]="newEvent.title">
-
+  <form (submit)="newEventSubmission()" class="postForm">
+    <div *ngIf="step1">
+      <label>Title</label>
+      <input type="text" name=newEvent.title [(ngModel)]="newEvent.title">
+      <label>Date:</label>
+      <input type="date" name=newEvent.date [(ngModel)]="newEvent.date">
+      <label>Time:</label>
+      <input type="time" name=newEvent.time [(ngModel)]="newEvent.time">
+      <select name=newEvent.ampm [(ngModel)]="newEvent.ampm">
+        <option value=AM>AM</option>
+        <option value="PM">PM</option>
+      </select>
+    </div>
+    <div *ngIf="step2">
+      <label>Street Address:</label>
+      <input type="text" name=newEvent.street [(ngModel)]="newEvent.street">
+      <label>City:</label>
+      <input type="text" name=newEvent.city [(ngModel)]="newEvent.city">
+      <label>State eg ("WA"):</label>
+      <input type="text" name=newEvent.state [(ngModel)]="newEvent.state">
+      <label>Zip code:</label>
+      <input type="text" name=newEvent.zip [(ngModel)]="newEvent.zip">
+      <input type="hidden"  value="{{id}}"name=newEvent.host [(ngModel)]="newEvent.host">
+  </div>
+  <div *ngIf="step3">
+    <label>Photo Link</label>
+    <input type="text" name=newEvent.photo [(ngModel)]="newEvent.photo">
+    <textarea class="details" type="text" name=newEvent.zip [(ngModel)]="newEvent.zip"></textarea>
+  </div>
   </form>
 </div>
