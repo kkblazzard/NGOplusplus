@@ -19,7 +19,6 @@ export class OrgregComponent implements OnInit {
     step2:boolean=false;
     step3:boolean=false;
     step:string="1";
-    completed:any;
     ngOnInit() {
       this.newOrg={
         name:"", 
@@ -61,7 +60,6 @@ export class OrgregComponent implements OnInit {
   step1switch(){
     this.step1=true;
     this.step2=false;
-    this.completed="33";
     this.step="1";
 
   }
@@ -69,13 +67,11 @@ export class OrgregComponent implements OnInit {
     this.step2=true;
     this.step1=false;
     this.step3=false;
-    this.completed=33;
     this.step="2";
   }
   step3switch(){
     this.step2=false;
     this.step3=true;
-    this.completed=66;
     this.step="3";
   }
 }

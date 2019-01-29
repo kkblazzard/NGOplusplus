@@ -1,0 +1,24 @@
+.myProgress {
+    width: 60%;
+    background-color: grey;
+}
+.myBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
+.form{
+    width:45%;
+    margin-left:27%;
+}
+.mission{
+    width:100%;
+    height:150px;
+}
+label{
+    font-size:20px;
+}
+button{
+    font-size:20px;
+    display:inline-block;
+}
