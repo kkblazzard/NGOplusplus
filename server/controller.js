@@ -7,8 +7,7 @@ module.exports={
         console.log("entered new controller", req.body);
         Orgs
         .create(req.body)
-        .then(anew=>console.log("created in controller",anew))
-        .then(res.json(anew))
+        .then(anew=>console.log("created in controller",anew)|| res.json(anew))
         .catch(err=>console.log(err) || res.json(err))
     },
     orgRemove: (req, res) => Orgs

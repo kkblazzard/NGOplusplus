@@ -5,7 +5,7 @@
     
       <br>
       <br>
-<form (submit)="newOrg()" class="postForm">
+<form (submit)="newOrgSubmission()" class="postForm">
   <div *ngIf="step1==true">
     <label>Organisation Name:</label>
     <br>
@@ -71,14 +71,20 @@
     <input type="string" name="newOrg.twAddress" [(ngModel)]="newOrg.twAddress">
     <br>
     <button (click)="step2switch()">Previous</button>
-    <button type="submit" >Submit</button>
+    <button >Submit</button>
     
   </div>
   
   
 </form>
 <br>
-    <div class="myProgress">Step {{step}} of 3
-        <div class="myBar"></div>
+<div *ngIf="step1==true" class="myProgress">
+  <div class="myBar" style="width:25%;">Step {{step}} of 3</div>
+</div>
+    <div *ngIf="step2==true" class="myProgress">
+        <div class="myBar" style="width:45%;">Step {{step}} of 3</div>
+      </div>
+      <div *ngIf="step3==true" class="myProgress">
+        <div class="myBar" style="width:75%;">Step {{step}} of 3</div>
       </div>
 </div>
