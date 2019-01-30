@@ -1,5 +1,5 @@
 <div *ngIf="org"> 
-  <img [src]="org.logo">
+  <img [src]="org.logo | safe">
   <h1>{{org.name}}</h1>
   <h2>Our Mission:</h2>
   <h3>{{org.mission}}</h3>
