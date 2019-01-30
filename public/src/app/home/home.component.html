@@ -2,7 +2,7 @@
     <h1 class="display-4">(NGO plus plus) - Empower your organization with the ability to coordinate with your allies that have similar goals.</h1>
     <hr class="my-4">
     <h4>Our mission is to help your organization match and find co-sponsors for your special events.</h4>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a>
+    <a class="btn btn-primary btn-lg" [routerLink]="['/user']" role="button">Get Started</a>
   </div>
 <hr>
 
@@ -10,21 +10,25 @@
   <h3>Event Calendar</h3>
   <div *ngFor= "let e of events" class="event">
     <div class="date">
-      <p>23</p>
-      <p>OCT</p>
+      <p>{{e.date}}</p>
+      <p>{{e.date}}</p>
     </div>
     <div class="info">
-      <h3>Event Name</h3>
-      <p><i class="far fa-calendar-alt"> Monday </i> <i class="far fa-clock">2pm</i> <i class="fas fa-location-arrow"></i>Cafe</p>
-      <p>Some info</p>
+        <a [routerLink]="['/event',e._id]"><h3>{{e.title}}</h3></a>
+      <p><i class="far fa-calendar-alt"> Monday </i> <i class="far fa-clock">{{e.time}}</i> <i class="fas fa-location-arrow"></i>{{e.address}}</p>
+      <p>{{e.details}}</p> 
     </div>
   </div>
 </div>
+
 
 <hr>
 
 <div>
   <h2>List of Orgs</h2>
-  <p *ngFor= "let o of orgs"><a [routerLink]="['/orgs','details',o._id]">{{o.name}}</a> Link: <a href="{{o.website}}">Website</a></p>
-  
+  <div class="org" *ngFor= "let o of orgs">
+    <img class="logo" [src]="o.logo">
+    <a [routerLink]="['/orgs','details',o._id]">{{o.name}}</a>
+    <hr>
+</div>
 </div> --> -->
