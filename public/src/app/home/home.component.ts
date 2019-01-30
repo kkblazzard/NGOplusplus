@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     });
   };
   getAllevents(){
-    this._httpService.getAllOrgs()
+    this._httpService.getAllEvents()
     .subscribe(orgs=>{
       console.log("received all orgs",orgs);
       this.orgs=orgs;

@@ -38,7 +38,7 @@ export class EventCreateComponent implements OnInit {
     console.log(this.newEvent);
     this._httpService.addEvent(this.newEvent)
     .subscribe(data=>{
-      this.id=data["id"];
+      this.id=data["_id"];
       console.log("new org added to db",data);
       if (data['errors']){
         this.Errors = data['errors'];
@@ -51,7 +51,7 @@ export class EventCreateComponent implements OnInit {
     });
   }
   godetails(){
-    this._router.navigate(['events/:id']);
+    this._router.navigate(['events/'+this.id]);
   }
   step1switch(){
     this.step1=true;
