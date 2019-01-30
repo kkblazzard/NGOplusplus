@@ -51,7 +51,7 @@ export class EventCreateComponent implements OnInit {
     });
   }
   godetails(){
-    this._router.navigate(['events/'+this.id]);
+    this._router.navigate(['event/'+this.id]);
   }
   step1switch(){
     this.step1=true;
