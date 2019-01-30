@@ -13,10 +13,10 @@
   <p>{{event.city}}, {{event.state}} {{event.zip}}</p>
 </div>
 <div  class="map">
-    <!-- <iframe
-    width="600px"
-    height="400px"
-    frameborder="0" style="border:0"
-    src=https://www.google.com/maps/embed/v1/search?key=AIzaSyB9458WCJDqSCuz6GbbWXGFaG7aba4flQA&q=${map} allowfullscreen>
-</iframe> -->
+    <iframe
+        width="500px"
+        height="400px"
+        frameborder="0" style="border:0"
+        [src]="map | safe" allowfullscreen>
+    </iframe>
 </div>

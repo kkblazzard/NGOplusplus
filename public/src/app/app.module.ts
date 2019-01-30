@@ -13,6 +13,7 @@ import { FindEventComponent } from './find-event/find-event.component';
 import { EventCreateComponent } from './event-create/event-create.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { LogregComponent } from './logreg/logreg.component';
+import { SafePipe } from './safepipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { LogregComponent } from './logreg/logreg.component';
     FindEventComponent,
     EventCreateComponent,
     EventDetailsComponent,
-    LogregComponent
+    LogregComponent,
+    SafePipe
+
   ],
   imports: [
     BrowserModule,
