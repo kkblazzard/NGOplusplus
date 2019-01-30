@@ -33,7 +33,7 @@ export class LogregComponent implements OnInit {
       }
       else{
         console.log("successfully added user");
-        localStorage.setItem('loginUserID', data._id);
+        localStorage.setItem('loginUserID', data['_id']);
         console.log(localStorage.getItem('loginUserID'));
 
       }
@@ -50,7 +50,7 @@ export class LogregComponent implements OnInit {
       else{
         console.log("login success");
         this.loggedinUser = data;
-        localStorage.setItem('loginUserID', this.loggedinUser._id);
+        localStorage.setItem('loginUserID', this.loggedinUser['_id']);
         console.log(localStorage.getItem('loginUserID'));
 
       }
