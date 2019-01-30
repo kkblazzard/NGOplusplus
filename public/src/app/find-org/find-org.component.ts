@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-find-org',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindOrgComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _httpService: HttpService) { }
+
+  orgs:any;
 
   ngOnInit() {
+    this.getAllOrgs();
   }
-
+  getAllOrgs(){
+    this._httpService.getAllOrgs()
+    .subscribe(orgs=>{
+      console.log("received all orgs",orgs);
+      this.orgs=orgs;
+      console.log("orgs set to passable variable orgs",this.orgs);
+    });
+  };
 }

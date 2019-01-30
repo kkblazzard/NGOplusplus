@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-find-event',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindEventComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _httpService: HttpService) { }
+
+  events:any;
 
   ngOnInit() {
+    this.getAllevents();
   }
 
+  getAllevents(){
+    this._httpService.getAllEvents()
+    .subscribe(events=>{
+      console.log("received all events",events);
+      this.events=events;
+      console.log("All Events set to passable variable events",this.events);
+    });
+  };
 }

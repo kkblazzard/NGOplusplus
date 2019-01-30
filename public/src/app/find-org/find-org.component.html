@@ -1,3 +1,9 @@
-<p>
-  find-org works!
-</p>
+
+<div>
+  <h2>List of Orgs</h2>
+  <div class="org" *ngFor= "let o of orgs">
+    <img class="logo" [src]="o.logo">
+    <a [routerLink]="['/orgs','details',o._id]">{{o.name}}</a>
+    <hr>
+  </div>
+</div>
