@@ -1,0 +1,67 @@
+<div class="title"><h1>Create an Event</h1></div>
+
+<div class="form">
+  <form (submit)="newEventSubmission()" class="postForm">
+    <div *ngIf="step1">
+      <label>Title</label>
+      <br>
+      <input type="text" name=newEvent.title [(ngModel)]="newEvent.title">
+      <br>
+      <br>
+      <label>Date:</label>
+      <br>
+      <input type="date" name=newEvent.date [(ngModel)]="newEvent.date">
+      <br>
+      <br>
+      <label>Time:</label>
+      <br>
+      <input type="time" name=newEvent.time [(ngModel)]="newEvent.time">
+      <br>
+      <button (click)="step2switch()">Next</button>
+    </div>
+    <div *ngIf="step2">
+      <label>Street Address:</label>
+      <br>
+      <input type="text" name=newEvent.street [(ngModel)]="newEvent.street">
+      <br>
+      <br>
+      <label>City:</label>
+      <br>
+      <input type="text" name=newEvent.city [(ngModel)]="newEvent.city">
+      <br>
+      <br>
+      <label>State eg ("WA"):</label>
+      <br>
+      <input type="text" name=newEvent.state [(ngModel)]="newEvent.state">
+      <br>
+      <br>
+      <label>Zip code:</label>
+      <br>
+      <input type="text" name=newEvent.zip [(ngModel)]="newEvent.zip">
+      <br>
+      <input type="hidden"  value="{{id}}"name=newEvent.host [(ngModel)]="newEvent.host">
+      <button (click)="step1switch()">Previous</button>
+      <button (click)="step3switch()">Next</button>
+    </div>
+  <div *ngIf="step3">
+    <label>Photo Link</label>
+    <br>
+    <input type="text" name=newEvent.photo [(ngModel)]="newEvent.photo">
+    <br>
+    <br>
+    <textarea class="details" type="text" name=newEvent.zip [(ngModel)]="newEvent.zip"></textarea>
+    <br>
+    <button (click)="step2switch()">Previous</button>
+    <button >Create Event</button>
+  </div>
+  </form>
+  <div *ngIf="step1==true" class="myProgress">
+      <div class="myBar" style="width:25%;">Step {{step}} of 3</div>
+    </div>
+        <div *ngIf="step2==true" class="myProgress">
+            <div class="myBar" style="width:45%;">Step {{step}} of 3</div>
+          </div>
+          <div *ngIf="step3==true" class="myProgress">
+            <div class="myBar" style="width:75%;">Step {{step}} of 3</div>
+          </div>
+</div>

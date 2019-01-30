@@ -1,0 +1,12 @@
+.left{
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    margin: 5%;
+}
+.right{
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    margin: 5%;
+}

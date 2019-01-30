@@ -3,44 +3,40 @@ import { HttpService } from '../http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-orgreg',
-  templateUrl: './orgreg.component.html',
-  styleUrls: ['./orgreg.component.css']
+  selector: 'app-event-create',
+  templateUrl: './event-create.component.html',
+  styleUrls: ['./event-create.component.css']
 })
-export class OrgregComponent implements OnInit {
+export class EventCreateComponent implements OnInit {
 
   constructor(private _httpService: HttpService,
     private _route: ActivatedRoute,
     private _router: Router) { }
     Errors:any;
-    newOrg:any="";
+    newEvent:any;
     id:any;
     step1:boolean=true;
     step2:boolean=false;
     step3:boolean=false;
     step:string="1";
-    ngOnInit() {
-      this.newOrg={
-        name:"", 
-        mission:"",
-        ein: Number,
-        phone:"",
-        email:"",  
-        logo:"", 
-        admins:[], 
-        events:[], 
-        webAddress:"", 
-        fbAddress:"", 
-        twAddress:"",
-        street:"",
-        city:"", 
-        state:"", 
-        zip:Number,
-      };
+  ngOnInit() {
+    this.newEvent={
+      title:"",
+      date:Date,
+      ampm:"",
+      time:"",
+      street:"",
+      city:"",
+      state:"",
+      zip:"",
+      host:[],
+      photo:"",
+      details:""
+    }
   }
-  newOrgSubmission(){
-    console.log(this.newOrg);
-    this._httpService.addOrg(this.newOrg)
+  newEventSubmission(){
+    console.log(this.newEvent);
+    this._httpService.addEvent(this.newEvent)
     .subscribe(data=>{
       this.id=data["id"];
       console.log("new org added to db",data);
@@ -55,7 +51,7 @@ export class OrgregComponent implements OnInit {
     });
   }
   godetails(){
-    this._router.navigate(['orgs/details/:id']);
+    this._router.navigate(['events/:id']);
   }
   step1switch(){
     this.step1=true;
