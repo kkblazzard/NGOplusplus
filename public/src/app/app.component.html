@@ -18,10 +18,10 @@
         <li class="nav-item">
             <a class="nav-link" [routerLink]="['/orgs/registration']"><i class="fas fa-edit"></i>Add your Organization</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="!userID">
             <a class="nav-link" [routerLink]="['/user']"><i class="fas fa-user-tie"></i>Login</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="userID">
             <a class="nav-link" (click)="clearLogin()" [routerLink]="['/']"><i class="fas fa-user-tie"></i>Logout</a>
           </li>
       </ul>
