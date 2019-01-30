@@ -32,5 +32,18 @@
     border-bottom: 0.5px solid #007bff;
     border-right: 10px solid #007bff;
 }
+.logo{
+max-height:150px;
+max-width:100px
+}
+.org{
+    width:20%;
+    height:150px;
+    display:inline-block;
+    vertical-align:top;
+    border:2px solid black;
+    margin-left:10%;
+    margin-top:3%;
+}
 
 
