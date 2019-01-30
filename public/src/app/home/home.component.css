@@ -7,43 +7,5 @@
     color: white;
     text-shadow: 1px 2px 2px black;
 }
-.date{
-    display: inline-block;
-    vertical-align: top;
-    width: 15%;
-    height: 25%;
-    text-align: center;
-    background-color: rgb(20, 20, 20);
-    color: white;
-    font-size: 40px;
-}
-.info{
-    padding: 10px;
-    display: inline-block;
-
-}
-.event{
-    margin:5px;
-}
-.event:hover .date{
-    background-color: #007bff;
-}
-.event:hover{
-    border-bottom: 0.5px solid #007bff;
-    border-right: 10px solid #007bff;
-}
-.logo{
-max-height:150px;
-max-width:100px
-}
-.org{
-    width:20%;
-    height:150px;
-    display:inline-block;
-    vertical-align:top;
-    border:2px solid black;
-    margin-left:10%;
-    margin-top:3%;
-}
 
 

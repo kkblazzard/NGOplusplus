@@ -1,3 +1,16 @@
-<p>
-  find-event works!
-</p>
+
+<div>
+  <h3>Event Calendar</h3>
+  <div *ngFor= "let e of events" class="event">
+    <div class="date">
+      <p>{{e.date}}</p>
+      <p>{{e.date}}</p>
+    </div>
+    <div class="info">
+        <a [routerLink]="['/event',e._id]"><h3>{{e.title}}</h3></a>
+      <p><i class="far fa-calendar-alt"> Monday </i> <i class="far fa-clock">{{e.time}}</i> <i class="fas fa-location-arrow"></i>{{e.address}}</p>
+      <p>{{e.details}}</p> 
+    </div>
+  </div>
+</div>
+
