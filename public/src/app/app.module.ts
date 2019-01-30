@@ -15,6 +15,7 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 import { LogregComponent } from './logreg/logreg.component';
 import { SafePipe } from './safepipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import { SafePipe } from './safepipe';
     EventCreateComponent,
     EventDetailsComponent,
     LogregComponent,
-    SafePipe
+    SafePipe,
 
   ],
   imports: [
