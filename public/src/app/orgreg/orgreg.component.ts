@@ -42,7 +42,7 @@ export class OrgregComponent implements OnInit {
     console.log(this.newOrg);
     this._httpService.addOrg(this.newOrg)
     .subscribe(data=>{
-      this.id=data["id"];
+      this.id=data["_id"];
       console.log("new org added to db",data);
       if (data['errors']){
         this.Errors = data['errors'];
@@ -55,7 +55,7 @@ export class OrgregComponent implements OnInit {
     });
   }
   godetails(){
-    this._router.navigate(['orgs/details/:id']);
+    this._router.navigate(['orgs/details/'+ this.id]);
   }
   step1switch(){
     this.step1=true;
