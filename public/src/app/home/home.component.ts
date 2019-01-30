@@ -11,9 +11,17 @@ export class HomeComponent implements OnInit {
   orgs:any;
   events:any;
   ngOnInit() {
-    
+    this.getAllOrgs();
   }
   getAllOrgs(){
+    this._httpService.getAllOrgs()
+    .subscribe(orgs=>{
+      console.log("received all orgs",orgs);
+      this.orgs=orgs;
+      console.log("orgs set to passable variable orgs",this.orgs);
+    });
+  };
+  getAllevents(){
     this._httpService.getAllOrgs()
     .subscribe(orgs=>{
       console.log("received all orgs",orgs);
