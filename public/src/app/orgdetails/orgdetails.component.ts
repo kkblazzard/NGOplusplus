@@ -34,12 +34,13 @@ export class OrgdetailsComponent implements OnInit {
     this._route.params.subscribe((params: Params) => {
       console.log("incoming id ",params['id'])
       this.id=params['id'];
-      this.org=this.getOrg()
+      this.getOrg()
     });
   }
   getOrg(){
-    return this._httpService.getOrg(this.id)
+    this._httpService.getOrg(this.id)
     .subscribe(org=>{
+      this.org=org;
       console.log("pulled a Org from db",org);
       console.log("Org",this.org)
     });
