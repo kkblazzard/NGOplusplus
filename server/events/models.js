@@ -14,7 +14,7 @@ var eventSchema = new mongoose.Schema({
         city:{type:String},
         state:{type:String},
         zip:{type:Number},
-        host:[{userId:String}],
+        host:[String],
         photo:{type:String},
         details:{type:String}
 },{timestamps:true}
