@@ -1,9 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-    background-color: rgb(129, 204, 166) !important;
-    color: #241C4B !important;
-}
-a{
-    color: #6F5ACD;
-
+body{
+    background-color: #e7e7e7;
 }
