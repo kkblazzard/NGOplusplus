@@ -7,10 +7,10 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
 
   constructor(private _http: HttpClient) { }
-  getAllOrgs(){
-    return this._http.get('/api/orgs');
-      
-    }
+    getAllOrgs(){
+      return this._http.get('/api/orgs');
+        
+      }
     getOrg(id){
       console.log("httpService",id);
       return this._http.get(`/api/orgs/${id}`);
@@ -29,6 +29,15 @@ export class HttpService {
     addEvent(newEvent){
       console.log("in httpService addEvent",newEvent);
       return this._http.post('/api/events',newEvent);
+    }
+    addUser(newOrg){
+      console.log("http.service addUser",newOrg);
+      return this._http.post('/api/users',newOrg);
+    }
+
+    confirmLogin(user){
+      console.log("http.service confirmLogin", user);
+      return this._http.post('/api/users/login', user);
     }
     getEvent(id){
       console.log("in httpService getEvent id is",id);

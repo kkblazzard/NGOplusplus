@@ -5,41 +5,55 @@
 <div class="left">
   <h3>Don't have an account with us yet? </h3>
     <p>Register today to add your organization and start planning your events!</p> 
+    <div *ngIf="createNewErrors">
+        <p *ngIf="createNewErrors.errors.username" style="color:red">
+          {{createNewErrors.errors.username.message}}
+        </p>
+        <p *ngIf="createNewErrors.errors.email" style="color:red">
+          {{createNewErrors.errors.email.message}}
+        </p>
+        <p *ngIf="createNewErrors.errors.password" style="color:red">
+          {{createNewErrors.errors.password.message}}
+        </p>
+    </div>
   <form>
     <label>
       User Name:
-      <input type="text">
+      <input type="text" name="newUser.username" [(ngModel)]="newUser.username">
     </label>
     <label>
       Email:
-      <input type="text">
+      <input type="text"  name="newUser.email" [(ngModel)]="newUser.email">
     </label>
     <label>
       Password:
-      <input type="text">
+      <input type="password" name="newUser.password" [(ngModel)]="newUser.password">
     </label>
     <br>
-    <button >Register</button>
+    <input type="submit" value="Register" (click)="onSubmitNew()"/>
   </form>
 </div>
 
 <div class="right">
   <h3>Already have an account?</h3>
   <p>Welcome back! Please login.</p>
+  <div *ngIf="loginError">
+      <p style="color:red">
+        {{loginError.error}}
+      </p>
+  </div>
   <form>
     <label>
       User Name:
-      <input type="text">
-    </label>
-    <label>
-      Email:
-      <input type="text">
+      <input type="text" name="loginInput.username" [(ngModel)]="loginInput.username">
     </label>
     <label>
       Password:
-      <input type="text">
+      <input type="password" name="loginInput.password" [(ngModel)]="loginInput.password">
     </label>
     <br>
-    <button>Login</button>
+    <input type="submit" value="Log in" (click)="onSubmitLogin()"/>
   </form>
 </div>
+
+  <button (click)="clearLogin()">Logout</button>
