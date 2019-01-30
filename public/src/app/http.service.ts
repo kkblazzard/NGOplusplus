@@ -35,6 +35,11 @@ export class HttpService {
       return this._http.post('/api/users',newOrg);
     }
 
+    userUpdate(id, userUpdate){
+      console.log("http.service userupdate", userUpdate);
+      return this._http.put('/api/users/'+id, userUpdate);
+    }
+
     confirmLogin(user){
       console.log("http.service confirmLogin", user);
       return this._http.post('/api/users/login', user);
