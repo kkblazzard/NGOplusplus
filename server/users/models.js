@@ -25,7 +25,7 @@ var userSchema = new mongoose.Schema({
                 bcrypt: true 
         },
 
-        orgid:{type: String}
+        orgId:{type: String}
 
 }, {timestamps:true})
 
