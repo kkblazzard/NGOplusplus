@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { ConsoleReporter } from 'jasmine';
+
 @Component({
   selector: 'app-event-details',
   templateUrl: './event-details.component.html',
