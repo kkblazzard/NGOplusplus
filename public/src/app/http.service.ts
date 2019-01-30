@@ -30,5 +30,9 @@ export class HttpService {
       console.log("in httpService addEvent",newEvent);
       return this._http.post('/api/events',newEvent);
     }
+    getEvent(id){
+      console.log("in httpService getEvent id is",id);
+      return this._http.get('/api/events/'+id);
+    }
 }
 

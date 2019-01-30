@@ -1,3 +1,22 @@
-<p>
-  event-details works!
-</p>
+<div *ngIf="event" class="image">
+  <img class="photo" [src]="event.photo">
+</div>
+<div class="details">
+  <h1>{{event.title}}</h1>
+  <p>{{event.details}}</p>
+  <p>Date: {{event.date}}</p>
+  <p>Time: {{event.time}}</p>
+</div>
+<div class="address">
+  <h5>Address:</h5>
+  <p>{{event.street}} </p>
+  <p>{{event.city}}, {{event.state}} {{event.zip}}</p>
+</div>
+<div  class="map">
+    <!-- <iframe
+    width="600px"
+    height="400px"
+    frameborder="0" style="border:0"
+    src=https://www.google.com/maps/embed/v1/search?key=AIzaSyB9458WCJDqSCuz6GbbWXGFaG7aba4flQA&q=${map} allowfullscreen>
+</iframe> -->
+</div>

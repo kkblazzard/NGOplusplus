@@ -38,10 +38,9 @@ export class OrgdetailsComponent implements OnInit {
     });
   }
   getOrg(){
-    this._httpService.getOrg(this.id)
+    return this._httpService.getOrg(this.id)
     .subscribe(org=>{
       console.log("pulled a Org from db",org);
-      this.org=org;
       console.log("Org",this.org)
     });
   };
