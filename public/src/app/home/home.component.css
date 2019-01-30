@@ -1,8 +1,36 @@
-.mainImg{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 65%;
-    height: auto;
-    border-radius: 5px;
+.jumbotron{
+ padding: 8%;
+ background-image: url('../../assets/img/6.jpg');
+ background-size: cover;
 }
+.jumbotron h1{
+    color: white;
+    text-shadow: 1px 2px 2px black;
+}
+.date{
+    display: inline-block;
+    vertical-align: top;
+    width: 15%;
+    height: 25%;
+    text-align: center;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    font-size: 40px;
+}
+.info{
+    padding: 10px;
+    display: inline-block;
+
+}
+.event{
+    margin:5px;
+}
+.event:hover .date{
+    background-color: #007bff;
+}
+.event:hover{
+    border-bottom: 0.5px solid #007bff;
+    border-right: 10px solid #007bff;
+}
+
+
