@@ -9,7 +9,14 @@
     min-width: 50%;
     max-width: 100%;
 }
+.address{
+    display:inline-block;
+    vertical-align: top;
+}
 .map{
 width:40%;
 height:20%;
+display:inline-block;
+margin-left:35%;
+margin-top:-50px;
 }
