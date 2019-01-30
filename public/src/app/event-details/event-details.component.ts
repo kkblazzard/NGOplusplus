@@ -18,6 +18,7 @@ export class EventDetailsComponent implements OnInit {
     cohostId:any;
     event:any="";
     map:any;
+    googlemap:any="https://www.google.com/maps/embed/v1/search?key=AIzaSyB9458WCJDqSCuz6GbbWXGFaG7aba4flQA&q=";
   ngOnInit() {
     this.event={
       title:"",
@@ -41,8 +42,9 @@ export class EventDetailsComponent implements OnInit {
     this._httpService.getEvent(id)
     .subscribe(event=>{
       this.event=event;
-      this.map=`${this.event.street}+,${this.event.city}+${this.event.state}`;
-      console.log("map", this.map)
+      this.map=`${this.googlemap}${this.event.street} ${this.event.city}, ${this.event.state}`;
+      console.log( this.map)
+      console.log("6935 37th Ave SW. Seattle, WA")
       this.hostId=this.event.host[0]
       console.log("hostId",this.hostId)
       this.host=this.getOrg(this.hostId);
