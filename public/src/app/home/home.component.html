@@ -25,7 +25,7 @@
 
 <div>
   <h2>List of Orgs</h2>
-  <p>Name <a>link to their website</a></p>
+  <p *ngFor= "let o of orgs"><a [routerLink]="['/orgs',o.id]">{{o.name}}</a> Link: <a href="{{o.website}}">Website</a></p>
   <p>Name <a>link to their website</a></p>
   <p>Name <a>link to their website</a></p>
 </div> --> -->

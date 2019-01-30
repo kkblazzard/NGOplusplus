@@ -18,7 +18,7 @@ export class EventDetailsComponent implements OnInit {
     cohostId:any;
     event:any="";
     map:any;
-    googlemap:any="https://www.google.com/maps/embed/v1/search?key=AIzaSyB9458WCJDqSCuz6GbbWXGFaG7aba4flQA&q=";
+    googlemap:any="https://www.google.com/maps/embed/v1/search?key=&q=";
   ngOnInit() {
     this.event={
       title:"",
