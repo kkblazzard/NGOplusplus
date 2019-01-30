@@ -43,5 +43,9 @@ export class HttpService {
       console.log("in httpService getEvent id is",id);
       return this._http.get('/api/events/'+id);
     }
+    getAllEvents(){
+      console.log("in httpService gotAllEvent ");
+      return this._http.get('/api/events/');
+    }
 }
 
