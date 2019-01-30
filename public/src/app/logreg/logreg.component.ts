@@ -35,7 +35,7 @@ export class LogregComponent implements OnInit {
         console.log("successfully added user");
         localStorage.setItem('loginUserID', data['_id']);
         console.log(localStorage.getItem('loginUserID'));
-
+        this._router.navigate(['/']);
       }
     });
   }
@@ -52,7 +52,7 @@ export class LogregComponent implements OnInit {
         this.loggedinUser = data;
         localStorage.setItem('loginUserID', this.loggedinUser['_id']);
         console.log(localStorage.getItem('loginUserID'));
-
+        this._router.navigate(['/']);
       }
     })
   }
