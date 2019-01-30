@@ -1,0 +1,26 @@
+
+.date{
+    display: inline-block;
+    vertical-align: top;
+    width: 15%;
+    height: 25%;
+    text-align: center;
+    background-color: rgb(20, 20, 20);
+    color: white;
+    font-size: 40px;
+}
+.info{
+    padding: 10px;
+    display: inline-block;
+
+}
+.event{
+    margin:5px;
+}
+.event:hover .date{
+    background-color: #007bff;
+}
+.event:hover{
+    border-bottom: 0.5px solid #007bff;
+    border-right: 10px solid #007bff;
+}
