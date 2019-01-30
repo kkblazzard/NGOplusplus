@@ -5,6 +5,11 @@ mongoose.connect('mongodb://localhost:27017/NGOplusplusdb', function(err){
         }
 });
 
+var messageSchema = new mongoose.Schema({
+        authorId:{type:String},
+        content:{type:String}
+}, {timestamps:true})
+
 var eventSchema = new mongoose.Schema({
         title:{type: String, required:true, minlength:4},
         date:{type: Date}, 
@@ -16,7 +21,8 @@ var eventSchema = new mongoose.Schema({
         zip:{type:Number},
         host:[String],
         photo:{type:String},
-        details:{type:String}
+        details:{type:String},
+        messages:[messageSchema]
 },{timestamps:true}
 )
 

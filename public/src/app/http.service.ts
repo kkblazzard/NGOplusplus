@@ -52,5 +52,9 @@ export class HttpService {
       console.log("in httpService gotAllEvent ");
       return this._http.get('/api/events/');
     }
+    addMessage(eventid, message){
+      console.log("in httpService addMessage");
+      return this._http.patch('/api/events/'+ eventid, message);
+    }
 }
 
