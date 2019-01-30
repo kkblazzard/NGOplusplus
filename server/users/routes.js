@@ -6,4 +6,5 @@ module.exports=function(app){
     .get('/api/users/:id', controller.userDetails)
     .put('/api/users/:id', controller.userUpdate)
     .delete('/api/users/:id', controller.userRemove)
+    .post('/api/users/login', controller.userLogin)
 }
