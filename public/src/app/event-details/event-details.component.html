@@ -12,14 +12,14 @@
   <p>{{event.street}} </p>
   <p>{{event.city}}, {{event.state}} {{event.zip}}</p>
 </div>
-<!-- <div class="map">
+<div class="map">
     <iframe
         width="500px"
         height="400px"
         frameborder="0" style="border:0"
         [src]="map | safe" allowfullscreen>
     </iframe>
-</div> -->
+</div>
 <div *ngFor="let sponsor of sponsors">
 <h5>Host Organizations:</h5>
 <p>{{sponsor[1]}}</p>

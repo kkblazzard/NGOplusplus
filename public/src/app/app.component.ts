@@ -8,11 +8,15 @@ import { HttpService } from './http.service';
 })
 export class AppComponent {
   constructor(private _httpService: HttpService){}
-  ngOnInit(){
 
+  userID: string;
+
+  ngOnInit(){
+    this.userID = localStorage.getItem('loginUserID');
   };
 
   clearLogin(){
     localStorage.clear();
+    this.userID = "";
   }
 }
