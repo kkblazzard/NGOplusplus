@@ -1,6 +1,9 @@
 <div class="title">
     <h1>Update Your Event</h1>
   </div>
+<div class="delete">
+  <button class="btn btn-outline-danger">Delete</button>
+</div>
 
 
   <div *ngIf="step1" class="progress" style="height: 30px;">
@@ -30,13 +33,9 @@
         <div class="form-group">
           <label class="cold-md-4 control-label">Date:</label>
           <div class="col-md-6">
-            <input type="text" name=event.date [(ngModel)]="event.date" class="form-control input-md">
+            <input type="date" name=event.date [(ngModel)]="event.date | date" class="form-control input-md">
           </div>
         </div>
-        <!-- <label>Time:</label>
-      <br>
-      <input type="time" name=event.time [(ngModel)]="event.time">
-      <br> -->
         <div class="buttons col-md-6">
           <button (click)="step2switch()" class="btn btn-outline-primary"> Next <i class="fas fa-arrow-right"></i>
           </button>

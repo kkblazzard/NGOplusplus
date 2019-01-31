@@ -27,3 +27,14 @@ button{
 .buttons{
     text-align: right;
 }
+.title{
+    display:inline-block;
+}
+.delete{
+    display:inline-block;
+    float:right;
+}
+.deletebutton{
+color:red;
+background-color:black
+}
