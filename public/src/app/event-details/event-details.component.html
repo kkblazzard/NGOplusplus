@@ -23,9 +23,13 @@
     <iframe width="400px" height="400px" frameborder="0" style="border:0" [src]="map | safe" allowfullscreen>
     </iframe>
   </div> 
+  <h4>Host Organizations:</h4>
   <div *ngFor="let sponsor of sponsors">
-    <h4>Host Organizations:</h4>
     <p><a [routerLink]="['/orgs','details',sponsor[0]]" >{{sponsor[1]}}</a></p>
+  </div>
+  <div *ngIf="userOrgAdmin == true">      
+      <p>Want to co-sponsor the event?</p>
+      <button (click)="addCosponsor()">co-sponsor</button>
   </div>
   <div>
     <h4>Post a Message to the Event</h4>
