@@ -9,6 +9,7 @@
 }
 .form{
     width:45%;
+    height: 25%;
     margin-left:27%;
 }
 .mission{
@@ -19,6 +20,10 @@ label{
     font-size:20px;
 }
 button{
+    margin: 5px;
     font-size:20px;
     display:inline-block;
+}
+.buttons{
+    text-align: right;
 }
