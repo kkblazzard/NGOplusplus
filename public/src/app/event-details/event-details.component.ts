@@ -29,7 +29,7 @@ export class EventDetailsComponent implements OnInit {
     this.user = localStorage.getItem('loginUserID');
     this.event = {
       title: "",
-      date: Date,
+      date: new Date,
       time: "",
       ampm: "",
       street: "",

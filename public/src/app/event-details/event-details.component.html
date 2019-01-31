@@ -41,11 +41,4 @@
   <div *ngFor="let message of event.messages">
     <p><span style="font-weight:bold">{{message.authorName}} says:</span> {{message.content}} </p><div class="delete" *ngIf="message.authorId==user" (click)="deleteMessage(message['_id'])">Delete</div>
   </div>
-  <hr>
-  <hr>
-  <hr>
-  <hr>
-  <hr>
-  <hr>
-  <hr>
 </div>
