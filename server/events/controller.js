@@ -1,4 +1,6 @@
 const Events=require('./models');
+var mongoose=require('mongoose');
+
 module.exports={
     eventAll: (req, res)=>Events
         .find().then(all=>console.log(all) || res.json(all))
@@ -14,6 +16,15 @@ module.exports={
         Events.findByIdAndUpdate(req.params.id, {$push:{messages:req.body}})
             .then(event=>res.json(event))
             .catch(err=>res.json(err))
+    },
+    messageDelete:(req, res)=>{
+        console.log("In messageDelete in controller")
+        var eventId= mongoose.Types.ObjectId(req.params.eventid);
+        var messageId= mongoose.Types.ObjectId(req.params.messageid);
+
+        Events.findByIdAndUpdate(eventId, { $pull: { messages: { _id: messageId } } }, { new: true})
+        .then(event => res.json(event))
+        .catch(err => console.log("There have been mesasge deletion errors")||res.json(err))
     },
     eventRemove: (req, res) => Events
         .findByIdAndDelete(req.params.id)
