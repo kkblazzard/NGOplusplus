@@ -1,0 +1,37 @@
+.details{
+    max-width:40%;
+    display:inline-block;
+    margin-left:5%;
+}
+.map{
+    display:inline-block;
+}
+footer{
+    margin-top:5%;
+    width:100%;
+
+}
+.footaddress{
+    display:inline-block;
+}
+.footcontact{
+    margin-top:5%;
+    float:right;
+}
+.events{
+    margin-top:2%;
+    width:50%;
+    height:400px;
+    
+
+}
+.alert{
+    color:rgb(23, 172, 18);
+}
+.logo{
+    margin-left:45%;
+}
+.background{
+    background-image: url('../../assets/img/Event_background.jpg');
+    background-size: cover;
+}

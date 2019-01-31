@@ -14,7 +14,26 @@ export class OrgdetailsComponent implements OnInit {
     private _router: Router) { }
     id:any;
     org:any="";
+    events:any=[];
+    event:any;
+    googlemap:any="https://www.google.com/maps/embed/v1/search?key=AIzaSyB9458WCJDqSCuz6GbbWXGFaG7aba4flQA&q=";
+    
   ngOnInit() {
+    this.event={
+      title: "",
+      date: Date,
+      time: "",
+      ampm: "",
+      street: "",
+      city: "",
+      state: "",
+      zip: "",
+      host: [],
+      photo: "",
+      details: "",
+      messages: [],
+      map:"",
+    };
     this.org={name:"", 
     mission:"",
     ein: Number,
@@ -43,6 +62,20 @@ export class OrgdetailsComponent implements OnInit {
       this.org=org;
       console.log("pulled a Org from db",org);
       console.log("Org",this.org)
+      this.org.events.forEach(element => {
+        console.log(element);
+      this.getEvent(element);
+      });
     });
   };
+  getEvent(id) {
+    console.log(id);
+    this._httpService.getEvent(id)
+      .subscribe(event => {
+        console.log("got event",event);
+        this.event = event;
+        this.event.map = `${this.googlemap}${this.event.street} ${this.event.city}, ${this.event.state}`;
+        this.events.push(this.event);
+      });
+    }
 }
