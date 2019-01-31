@@ -20,6 +20,7 @@ export class LogregComponent implements OnInit {
     private _httpService: HttpService,
     private _route: ActivatedRoute,
     private _router: Router
+   
   ) { }
 
   ngOnInit() {
@@ -52,7 +53,7 @@ export class LogregComponent implements OnInit {
         this.loggedinUser = data;
         localStorage.setItem('loginUserID', this.loggedinUser['_id']);
         console.log(localStorage.getItem('loginUserID'));
-        this._router.navigate(['/']);
+        this._router.navigate(['']);
       }
     })
   }

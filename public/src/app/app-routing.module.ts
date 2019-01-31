@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: "event/new/:id", component: EventCreateComponent},
   {path: "event/:id", component: EventDetailsComponent},
   {path: "user", component: LogregComponent},
+  { path: 'login',   redirectTo: '' },
   {path:'**', redirectTo:'home'},
 ];
 
