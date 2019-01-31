@@ -8,6 +8,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
   styleUrls: ['./event-create.component.css']
 })
 export class EventCreateComponent implements OnInit {
+  org: any;
   orgId: any;
   Errors: any;
   newEvent: any;
@@ -42,23 +43,38 @@ export class EventCreateComponent implements OnInit {
       details: "",
       messages: []
     }
+
+    this._httpService.getOrg(this.orgId)
+      .subscribe(data => {
+        this.org=data;
+      })
   }
   newEventSubmission() {
     console.log(this.newEvent);
     this.newEvent.host.push(this.orgId);
-      this._httpService.addEvent(this.newEvent)
-        .subscribe(data => {
-          this.id = data["_id"];
-          console.log("new org added to db", data);
-          if (data['errors']) {
-            this.Errors = data['errors'];
-            console.log("This is data['errors']");
-            console.log(data['errors'])
-          }
-          else {
-            this.godetails();
-          }
-        });
+    this._httpService.addEvent(this.newEvent)
+      .subscribe(data => {
+        this.id = data["_id"];
+        console.log("new event added to db", data);
+        if (data['errors']) {
+          this.Errors = data['errors'];
+          console.log("This is data['errors']");
+          console.log(data['errors'])
+        }
+        else {
+          this.org.events.push(data["_id"]);
+          this._httpService.updateOrg(this.orgId, this.org)
+            .subscribe(data => {
+              if (data['errors']) {
+                console.log("This is data['errors'] for updating the org");
+                console.log(data['errors'])
+              }
+              else {
+                this.godetails();
+              }
+            })
+        }
+      })
   }
   godetails() {
     this._router.navigate(['event/' + this.id]);

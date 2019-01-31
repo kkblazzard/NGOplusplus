@@ -19,6 +19,10 @@ export class EventDetailsComponent implements OnInit {
   newMessage: any;
   googlemap: any = "https://www.google.com/maps/embed/v1/search?key=AIzaSyB9458WCJDqSCuz6GbbWXGFaG7aba4flQA&q=";
 
+  userObj:any;  //whoe user obj incl orgId
+  userOrgAdmin:any;
+  eventWnewHost: any;
+  
   constructor(private _httpService: HttpService,
     private _route: ActivatedRoute,
     private _router: Router) {
@@ -52,6 +56,7 @@ export class EventDetailsComponent implements OnInit {
       authorName: "",
       content: ""
     }
+    this.getUserObj();
   }
   getEvent(id) {
     console.log("##################################################");
@@ -134,4 +139,35 @@ export class EventDetailsComponent implements OnInit {
         this.getEvent(this.eventId);
       })
   }
+
+//-----------for adding co-sponsor-------------------
+  addCosponsor(){
+    console.log("addCosponsor clicked");
+    // this.eventWnewHost={'host': this.userObj.orgId};
+    this.event.host.push(this.userObj['orgId']);
+    this._httpService.updateEvent(this.eventId, this.event)
+      .subscribe(data=>{
+        console.log("event host added, ", data);
+        this.getEvent(this.eventId);
+      })
+  }
+
+// -----------current login user detail-----------------
+  getUserObj(){
+    this._httpService.getUser(this.user)
+    .subscribe(user => {
+      this.userObj = user;
+      console.log("got the user object", this.userObj);
+      //also check if user is admin
+      if (this.userObj['orgId'] != null){
+        console.log("user has orgId, UserOrgAdmin true")
+        this.userOrgAdmin = true;
+      }
+      else {
+        console.log("user does not have orgId, UserOrgAdmin false")
+        this.userOrgAdmin = false;
+      }
+    })
+  }
+
 }
