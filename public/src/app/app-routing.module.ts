@@ -22,8 +22,8 @@ const routes: Routes = [
   {path: "event/new/:id", component: EventCreateComponent},
   {path: "event/:id", component: EventDetailsComponent},
   {path: "user", component: LogregComponent},
-  {path: "edit/org/:id", component: EditOrgComponent},
-  {path: "edit/event/:id", component: EditEventComponent},
+  {path: "orgs/edit/:id", component: EditOrgComponent},
+  {path: "event/edit/:id", component: EditEventComponent},
   {path: 'login',   redirectTo: '' },
   {path:'**', redirectTo:'home'},
 ];
