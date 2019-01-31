@@ -13,12 +13,14 @@ export class OrgdetailsComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router) { }
     id:any;
+    admin:any;
     org:any="";
     events:any=[];
     event:any;
     googlemap:any="https://www.google.com/maps/embed/v1/search?key=AIzaSyB9458WCJDqSCuz6GbbWXGFaG7aba4flQA&q=";
     
   ngOnInit() {
+    this.admin=true;
     this.event={
       title: "",
       date: Date,
