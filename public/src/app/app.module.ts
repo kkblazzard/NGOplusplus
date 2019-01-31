@@ -16,6 +16,8 @@ import { LogregComponent } from './logreg/logreg.component';
 import { SafePipe } from './safepipe';
 
 import { HeaderComponent } from './header/header.component';
+import { EditOrgComponent } from './edit-org/edit-org.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { HeaderComponent } from './header/header.component';
     LogregComponent,
     SafePipe,
     HeaderComponent,
+    EditOrgComponent,
+    EditEventComponent,
  
 
 

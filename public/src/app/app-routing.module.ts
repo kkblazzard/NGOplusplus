@@ -8,6 +8,8 @@ import { FindEventComponent } from './find-event/find-event.component';
 import { EventCreateComponent } from './event-create/event-create.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { LogregComponent } from './logreg/logreg.component';
+import { EditOrgComponent } from './edit-org/edit-org.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 
 const routes: Routes = [
 
@@ -20,6 +22,8 @@ const routes: Routes = [
   {path: "event/new/:id", component: EventCreateComponent},
   {path: "event/:id", component: EventDetailsComponent},
   {path: "user", component: LogregComponent},
+  {path: "edit/org", component: EditOrgComponent},
+  {path: "edit/event", component: EditEventComponent},
   { path: 'login',   redirectTo: '' },
   {path:'**', redirectTo:'home'},
 ];
