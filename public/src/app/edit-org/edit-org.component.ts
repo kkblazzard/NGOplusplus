@@ -57,8 +57,6 @@ export class EditOrgComponent implements OnInit {
       });
     }
   updateOrgSubmission(){
-  
-
     this._httpService.updateOrg(this.id, this.org)
     .subscribe(data=>{
       console.log("new org added to db",data);
@@ -72,6 +70,10 @@ export class EditOrgComponent implements OnInit {
         this.godetails()
       }
     });
+  }
+  delete(){
+    this._httpService.deleteOrg(this.id);
+    this._router.navigate(['']);
   }
   godetails(){
     this._router.navigate(['orgs/details/'+ this.id]);

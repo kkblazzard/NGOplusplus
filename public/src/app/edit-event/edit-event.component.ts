@@ -67,6 +67,10 @@ export class EditEventComponent implements OnInit {
           }
         });
   }
+  delete(){
+    this._httpService.deleteEvent(this.eventId);
+    this._router.navigate(['']);
+  }
   godetails() {
     this._router.navigate(['event/' + this.eventId]);
   }
