@@ -1,67 +1,98 @@
-<div class="title"><h1>Create an Event</h1></div>
+<div class="title">
+    <h1>Create an Event</h1>
+  </div>
 
-<div class="form">
-  <form (submit)="newEventSubmission()" class="postForm">
-    <div *ngIf="step1">
-      <label>Title</label>
-      <br>
-      <input type="text" name=newEvent.title [(ngModel)]="newEvent.title">
-      <br>
-      <br>
-      <label>Date:</label>
-      <br>
-      <input type="datetime-local" name=newEvent.date [(ngModel)]="newEvent.date">
-      <br>
-      <br>
-      <!-- <label>Time:</label>
+
+  <div *ngIf="step1" class="progress" style="height: 30px;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated active" role="progressbar" aria-valuenow="33"
+      aria-valuemin="0" aria-valuemax="100" style="width:33%">Step {{step}} of 3</div>
+  </div>
+  <div *ngIf="step2" class="progress" style="height: 30px;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated active" style="width:69%;">Step {{step}} of 3</div>
+  </div>
+  <div *ngIf="step3" class="progress" style="height: 30px;">
+    <div class="progress-bar progress-bar-striped progress-bar-animated active" style="width:100%;">Step {{step}} of 3</div>
+  </div>
+
+
+  <div class="form">
+
+    <br>
+    <br>
+    <form (submit)="newEventSubmission()" class="postForm form-horizontal">
+      <div *ngIf="step1">
+        <div class="form-group">
+          <label class="cold-md-4 control-label">Title:</label>
+          <div class="col-md-6">
+            <input type="text" name=newEvent.title [(ngModel)]="newEvent.title" class="form-control input-md">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="cold-md-4 control-label">Date:</label>
+          <div class="col-md-6">
+            <input type="datetime-local" name=newEvent.date [(ngModel)]="newEvent.date" class="form-control input-md">
+          </div>
+        </div>
+        <!-- <label>Time:</label>
       <br>
       <input type="time" name=newEvent.time [(ngModel)]="newEvent.time">
       <br> -->
-      <button (click)="step2switch()">Next</button>
-    </div>
-    <div *ngIf="step2">
-      <label>Street Address:</label>
-      <br>
-      <input type="text" name=newEvent.street [(ngModel)]="newEvent.street">
-      <br>
-      <br>
-      <label>City:</label>
-      <br>
-      <input type="text" name=newEvent.city [(ngModel)]="newEvent.city">
-      <br>
-      <br>
-      <label>State eg ("WA"):</label>
-      <br>
-      <input type="text" name=newEvent.state [(ngModel)]="newEvent.state">
-      <br>
-      <br>
-      <label>Zip code:</label>
-      <br>
-      <input type="text" name=newEvent.zip [(ngModel)]="newEvent.zip">
-      <br>
-      <input type="hidden"  value="{{id}}"name=newEvent.host [(ngModel)]="newEvent.host">
-      <button (click)="step1switch()">Previous</button>
-      <button (click)="step3switch()">Next</button>
-    </div>
-  <div *ngIf="step3">
-    <label>Photo Link</label>
-    <br>
-    <input type="text" name=newEvent.photo [(ngModel)]="newEvent.photo">
-    <br>
-    <br>
-    <textarea class="details" type="text" name=newEvent.details [(ngModel)]="newEvent.details">Details</textarea>
-    <br>
-    <button (click)="step2switch()">Previous</button>
-    <button class="btn btn-success" >Create Event</button>
-  </div>
-  </form>
-  <div *ngIf="step1==true" class="myProgress">
-      <div class="myBar" style="width:25%;">Step {{step}} of 3</div>
-    </div>
-        <div *ngIf="step2==true" class="myProgress">
-            <div class="myBar" style="width:45%;">Step {{step}} of 3</div>
+        <div class="buttons col-md-6">
+          <button (click)="step2switch()" class="btn btn-outline-primary"> Next <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="step2">
+        <div class="form-group">
+          <label class="cold-md-4 control-label">Street Address:</label>
+          <div class="col-md-6">
+            <input type="text" name=newEvent.street [(ngModel)]="newEvent.street" class="form-control input-md">
           </div>
-          <div *ngIf="step3==true" class="myProgress">
-            <div class="myBar" style="width:75%;">Step {{step}} of 3</div>
+        </div>
+        <div class="form-group">
+          <label class="cold-md-4 control-label">City:</label>
+          <div class="col-md-6">
+            <input type="text" name=newEvent.city [(ngModel)]="newEvent.city" class="form-control input-md">
           </div>
+        </div>
+        <div class="form-group">
+          <label class="cold-md-4 control-label">State eg ("WA"):</label>
+          <div class="col-md-6">
+            <input type="text" name=newEvent.state [(ngModel)]="newEvent.state" class="form-control input-md">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="cold-md-4 control-label">Zip Code:</label>
+          <div class="col-md-6">
+            <input type="text" name=newEvent.zip [(ngModel)]="newEvent.zip" class="form-control input-md">
+          </div>
+        </div>
+        <input type="hidden" value="{{id}}" name=newEvent.host [(ngModel)]="newEvent.host">
+        <div class="buttons col-md-6">
+          <button (click)="step1switch()" class="btn btn-outline-primary"><i class="fas fa-arrow-left"></i> Previous
+          </button>
+          <button (click)="step3switch()" class="btn btn-outline-primary"> Next <i class="fas fa-arrow-right"></i></button>
+        </div>
 </div>
+      <div *ngIf="step3">
+        <div class="form-group">
+          <label class="cold-md-4 control-label">Photo Link:</label>
+          <div class="col-md-6">
+            <input type="text" name=newEvent.photo [(ngModel)]="newEvent.photo" class="form-control input-md">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="cold-md-4 control-label">Zip Code:</label>
+          <div class="col-md-6">
+            <textarea type="text" name=newEvent.details [(ngModel)]="newEvent.details" class="form-control input-md"></textarea>
+          </div>
+        </div>
+        <div class="buttons col-md-6">
+          <button (click)="step2switch()" class="btn btn-outline-primary"><i class="fas fa-arrow-left"></i> Previous
+          </button>
+          <button class="btn btn-outline-success"> Submit <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </form>
+  </div>
+
