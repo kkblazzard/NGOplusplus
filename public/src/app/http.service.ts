@@ -17,7 +17,10 @@ export class HttpService {
     console.log("http.service addUser", newOrg);
     return this._http.post('/api/users', newOrg);
   }
-  
+  getUser(id) {
+    console.log("httpSErvice getting user", id);
+    return this._http.get(`/api/users/${id}`);
+  }
 
 
 // ------------------orgs-------------------------------
@@ -49,10 +52,6 @@ addEvent(newEvent) {
 getEvent(id) {
   console.log("in httpService getEvent id is", id);
   return this._http.get('/api/events/' + id);
-}
-getUser(id) {
-  console.log("httpSErvice getting user", id);
-  return this._http.get(`/api/users/${id}`);
 }
 getAllEvents() {
   console.log("in httpService gotAllEvent ");
