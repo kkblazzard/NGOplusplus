@@ -8,17 +8,20 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
   styleUrls: ['./event-details.component.css']
 })
 export class EventDetailsComponent implements OnInit {
+  user:any; //userid actually
   sponsors: any;
   eventId: any;
   host: any;
   hostId: any;
   event: any = "";
   map: any;
+  newMessage:any;
   googlemap: any = "https://www.google.com/maps/embed/v1/search?key=AIzaSyB9458WCJDqSCuz6GbbWXGFaG7aba4flQA&q=";
 
   constructor(private _httpService: HttpService,
     private _route: ActivatedRoute,
     private _router: Router) {
+    this.user=localStorage.getItem('loginUserID');
     this.event = {
       title: "",
       date: Date,
@@ -42,8 +45,14 @@ export class EventDetailsComponent implements OnInit {
       this.eventId = params['id'];
       this.getEvent(this.eventId);
     });
+    this.newMessage={
+      authorId:"",
+      content: ""
+    }
   }
   getEvent(id) {
+    console.log("##################################################");
+    console.log("user: ", this.user);
     this._httpService.getEvent(id)
       .subscribe(event => {
         this.event = event;
@@ -53,6 +62,7 @@ export class EventDetailsComponent implements OnInit {
         console.log("6935 37th Ave SW. Seattle, WA")
         // this.hostId=this.event.host[0]
         // console.log("hostId",this.hostId)
+        this.sponsors =[];
         console.log(this.sponsors);
         this.event.host.forEach(orgId => {
           this.getOrg(orgId)
@@ -75,4 +85,18 @@ export class EventDetailsComponent implements OnInit {
         console.log(this.sponsors);
       });
   };
+
+  submitMessage(){
+    this.newMessage.authorId=this.user;
+    return this._httpService.addMessage(this.eventId, this.newMessage)
+    .subscribe(event=>{
+      console.log(event["messages"])
+      console.log("got a response back from the server");
+      this.getEvent(this.eventId);
+      this.newMessage={
+        authorId:"",
+        content: ""
+      }
+    })
+  }
 }
