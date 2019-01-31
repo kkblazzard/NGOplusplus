@@ -8,15 +8,20 @@ export class HttpService {
 
   constructor(private _http: HttpClient) { }
 
+
   // -------------------users------------------------------
   userUpdate(id, userUpdate) {
     console.log("http.service userupdate", userUpdate);
     return this._http.put('/api/users/' + id, userUpdate);
+  getUser(id) {
+    console.log("httpSErvice getting user", id);
+    return this._http.get(`/api/users/${id}`);
   }
   addUser(newOrg) {
     console.log("http.service addUser", newOrg);
     return this._http.post('/api/users', newOrg);
   }
+
   
 
 
@@ -69,12 +74,15 @@ deleteEvent(id) {
 
 
 // -------------------log&reg-----------------------
+
   confirmLogin(user) {
     console.log("http.service confirmLogin", user);
     return this._http.post('/api/users/login', user);
   }
 
+
   // ----------------messaging-------------------
+
   addMessage(eventid, message) {
     console.log("in httpService addMessage");
     return this._http.patch('/api/events/' + eventid, message);
