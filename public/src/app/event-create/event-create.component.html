@@ -10,13 +10,13 @@
       <br>
       <label>Date:</label>
       <br>
-      <input type="date" name=newEvent.date [(ngModel)]="newEvent.date">
+      <input type="datetime-local" name=newEvent.date [(ngModel)]="newEvent.date">
       <br>
       <br>
-      <label>Time:</label>
+      <!-- <label>Time:</label>
       <br>
       <input type="time" name=newEvent.time [(ngModel)]="newEvent.time">
-      <br>
+      <br> -->
       <button (click)="step2switch()">Next</button>
     </div>
     <div *ngIf="step2">

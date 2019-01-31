@@ -1,3 +1,4 @@
+
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
@@ -10,21 +11,21 @@
   <div class="details">
     <h1>{{event.title}}</h1>
     <p>{{event.details}}</p>
-    <p>Date: {{event.date}}</p>
-    <p>Time: {{event.time}}</p>
+    <p>Date: {{event.date | date: 'EEEE MMM d'}}</p>
+    <p>Time:{{event.date | date: 'h:mm a'}}</p>
   </div>
   <div class="address">
     <h5>Address:</h5>
     <p>{{event.street}} </p>
     <p>{{event.city}}, {{event.state}} {{event.zip}}</p>
   </div>
-  <!-- <div class="map">
-    <iframe width="500px" height="400px" frameborder="0" style="border:0" [src]="map | safe" allowfullscreen>
+  <div class="map">
+    <iframe width="400px" height="400px" frameborder="0" style="border:0" [src]="map | safe" allowfullscreen>
     </iframe>
-  </div> -->
+  </div> 
   <div *ngFor="let sponsor of sponsors">
     <h4>Host Organizations:</h4>
-    <p>{{sponsor[1]}}</p>
+    <p><a [routerLink]="['/orgs','details',sponsor[0]]" >{{sponsor[1]}}</a></p>
   </div>
   <div>
     <h4>Post a Message to the Event</h4>

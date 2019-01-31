@@ -14,6 +14,7 @@ import { EventCreateComponent } from './event-create/event-create.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { LogregComponent } from './logreg/logreg.component';
 import { SafePipe } from './safepipe';
+
 import { HeaderComponent } from './header/header.component';
 
 
@@ -30,6 +31,8 @@ import { HeaderComponent } from './header/header.component';
     LogregComponent,
     SafePipe,
     HeaderComponent,
+ 
+
 
   ],
   imports: [
