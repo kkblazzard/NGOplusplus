@@ -1,19 +1,43 @@
-<div *ngIf="org"> 
-  <img [src]="org.logo | safe">
+<div *ngIf="org" class="logo"> 
+  <img  [src]="org.logo | safe">
   <h1>{{org.name}}</h1>
-  <h2>Our Mission:</h2>
-  <h3>{{org.mission}}</h3>
+  <h3>Our Mission:</h3>
+  <h4 >{{org.mission}}</h4>
 </div>
-
+<div *ngIf="events" class="background">
+    <hr>
+  <h1 class="alert">Upcoming Events:</h1>
+  
+  <div  *ngFor="let e of events" class="events"> 
+      <div  class="image">
+        <img class="photo" [src]="e.photo">
+      </div>
+      <div class="details">
+        <a [routerLink]="['/event',e._id]"><h1>{{e.title}}</h1></a>
+        <div class="mission">
+        <p>{{e.details}}</p>
+      </div>
+        <p>Date: {{e.date | date: 'EEEE MMM d'}}</p>
+        <p>Time:{{e.date | date: 'h:mm a'}}</p>
+      </div>
+        <div class="map">
+            <iframe width="200px" height="200px" frameborder="0" style="border:0" [src]="e.map | safe" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 
 
 
 
 <footer *ngIf="org">
-  <h6>address:</h6>
+  <div class="footaddress">
+  <h6>contact Info:</h6>
   <h6>{{org.street}}</h6>
   <h6>{{org.city}}, {{org.state}} {{org.zip}}</h6>
+</div>
+<div class="footcontact">
   <h6>Phone Number:{{org.phone}}</h6>
   <h6>Email Address: {{org.email}}</h6>
+</div>
 </footer>
 
