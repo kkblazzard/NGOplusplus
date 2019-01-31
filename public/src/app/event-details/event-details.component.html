@@ -1,11 +1,11 @@
 <div *ngIf="event" class="image">
   <img class="photo" [src]="event.photo">
 </div>
-<div class="details">
+<div *ngIf="event" class="details">
   <h1>{{event.title}}</h1>
   <p>{{event.details}}</p>
-  <p>Date: {{event.date}}</p>
-  <p>Time: {{event.time}}</p>
+  <p>Date: {{event.date | date: 'EEEE MMM d'}}</p>
+  <p>Time: {{event.date | date: 'h:mm a'}}</p>
 </div>
 <div class="address">
   <h5>Address:</h5>

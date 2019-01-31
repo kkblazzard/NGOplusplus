@@ -3,12 +3,11 @@
   <h3>Event Calendar</h3>
   <div *ngFor= "let e of events" class="event">
     <div class="date">
-      <p>{{e.date}}</p>
-      <p>{{e.date}}</p>
+      <p>{{e.date | date: 'MMM d'}}</p>
     </div>
     <div class="info">
         <a [routerLink]="['/event',e._id]"><h3>{{e.title}}</h3></a>
-      <p><i class="far fa-calendar-alt"> Monday </i> <i class="far fa-clock">{{e.time}}</i> <i class="fas fa-location-arrow"></i>{{e.address}}</p>
+      <p><i class="far fa-calendar-alt"> {{e.date | date: 'EEEE'}} </i> <i class="far fa-clock">{{e.date | date:'h:mm a'}} </i> <i class="fas fa-location-arrow"></i>{{e.address}}</p>
       <p>{{e.details}}</p> 
     </div>
   </div>

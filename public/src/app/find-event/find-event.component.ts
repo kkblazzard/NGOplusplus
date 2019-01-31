@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 
+
 @Component({
   selector: 'app-find-event',
   templateUrl: './find-event.component.html',
