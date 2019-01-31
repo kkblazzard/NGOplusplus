@@ -8,20 +8,21 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
   styleUrls: ['./event-details.component.css']
 })
 export class EventDetailsComponent implements OnInit {
-  user:any; //userid actually
+  user: any; //userid actually
   sponsors: any;
   eventId: any;
   host: any;
   hostId: any;
   event: any = "";
   map: any;
-  newMessage:any;
+  eventmessages: any;
+  newMessage: any;
   googlemap: any = "https://www.google.com/maps/embed/v1/search?key=AIzaSyB9458WCJDqSCuz6GbbWXGFaG7aba4flQA&q=";
 
   constructor(private _httpService: HttpService,
     private _route: ActivatedRoute,
     private _router: Router) {
-    this.user=localStorage.getItem('loginUserID');
+    this.user = localStorage.getItem('loginUserID');
     this.event = {
       title: "",
       date: Date,
@@ -37,6 +38,7 @@ export class EventDetailsComponent implements OnInit {
       messages: [],
     }
     this.sponsors = [];
+    this.eventmessages = [];
 
   }
   ngOnInit() {
@@ -45,8 +47,9 @@ export class EventDetailsComponent implements OnInit {
       this.eventId = params['id'];
       this.getEvent(this.eventId);
     });
-    this.newMessage={
-      authorId:"",
+    this.newMessage = {
+      authorId: "",
+      authorName: "",
       content: ""
     }
   }
@@ -62,11 +65,16 @@ export class EventDetailsComponent implements OnInit {
         console.log("6935 37th Ave SW. Seattle, WA")
         // this.hostId=this.event.host[0]
         // console.log("hostId",this.hostId)
-        this.sponsors =[];
-        console.log(this.sponsors);
+        this.sponsors = [];
         this.event.host.forEach(orgId => {
           this.getOrg(orgId)
         });
+        // for (var i=0;i<this.event.messages.length;i++){
+        //   getUser(this.event.message[1]["authorId"], function(){
+
+        //   })
+        // }
+
 
         // this.host=this.getOrg(this.hostId);
         // if(this.event.host[1]){
@@ -86,17 +94,44 @@ export class EventDetailsComponent implements OnInit {
       });
   };
 
-  submitMessage(){
-    this.newMessage.authorId=this.user;
-    return this._httpService.addMessage(this.eventId, this.newMessage)
-    .subscribe(event=>{
-      console.log(event["messages"])
-      console.log("got a response back from the server");
-      this.getEvent(this.eventId);
-      this.newMessage={
-        authorId:"",
-        content: ""
-      }
-    })
+  // getUser(id, callback){
+  //   return this._httpService.getUser(id)
+  //   .subscribe(user=>{
+
+  //   })
+  // }
+  //###################################################################
+  //ADD THIS TO HTTP SERVICE FILE
+  // getUser(id){
+  //   console.log("httpSErvice getting user",id);
+  //   return this._http.get(`/api/users/${id}`);
+  // }
+  //###########################################################
+  submitMessage() {
+    this.newMessage.authorId = this.user;
+    return this._httpService.getUser(this.user)
+      .subscribe(user => {
+        this.newMessage.authorName = user["username"];
+        return this._httpService.addMessage(this.eventId, this.newMessage)
+          .subscribe(event => {
+            console.log(event["messages"])
+            console.log("got a response back from the server");
+            this.getEvent(this.eventId);
+            this.newMessage = {
+              authorId: "",
+              content: ""
+            }
+          })
+      })
+  }
+
+  deleteMessage(id) {
+    console.log("getting id ", id)
+    console.log(this.eventId)
+    return this._httpService.deleteMessage(this.eventId, id)
+      .subscribe(event => {
+        console.log ("I've made it to the deleteMessage callback")
+        this.getEvent(this.eventId);
+      })
   }
 }

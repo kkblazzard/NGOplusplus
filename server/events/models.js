@@ -7,6 +7,7 @@ mongoose.connect('mongodb://localhost:27017/NGOplusplusdb', function(err){
 
 var messageSchema = new mongoose.Schema({
         authorId:{type:String},
+        authorName:{type:String},
         content:{type:String}
 }, {timestamps:true})
 
