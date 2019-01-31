@@ -56,5 +56,17 @@ export class HttpService {
       console.log("in httpService addMessage");
       return this._http.patch('/api/events/'+ eventid, message);
     }
+
+    // ---------none route code shared functions
+
+    get loginUserID(): boolean{
+      let s = localStorage.getItem('loginUserID');
+      if(s){
+        return true;
+      }
+      return false;
+    }
+    
+    
 }
 
