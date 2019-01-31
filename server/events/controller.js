@@ -33,8 +33,16 @@ module.exports={
     eventDetails:(req, res) => Events
         .findById(req.params.id).then(one=>console.log(one) || res.json(one))
         .catch(err=>console.log(err) || res.json(err)),
+
     eventUpdate: (req, res) => Events
-        .findByIdAndUpdate(req.params.id,req.body,{new: true, runValidators:true})
+        .findByIdAndUpdate(req.params.id,req.body,{new: true})
         .then(updated =>console.log("updated",updated)||res.json(updated))
         .catch(err=>console.log(err) || res.json(err)),
+
+    // eventAddHost: (req, res) => Events
+    //     .findByIdAndUpdate(req.params.id, {
+    //         $push:{host: req.body.orgid}
+    //     })
+    //     .then(updated =>console.log("updated",updated)||res.json(updated))
+    //     .catch(err=>console.log(err) || res.json(err)),
 }
