@@ -2,7 +2,7 @@
     <h1>Update Your Event</h1>
   </div>
 <div class="delete">
-  <button class="btn btn-outline-danger">Delete</button>
+  <button (click)="delete()" class="btn btn-outline-danger">Delete</button>
 </div>
 
 
@@ -33,7 +33,7 @@
         <div class="form-group">
           <label class="cold-md-4 control-label">Date:</label>
           <div class="col-md-6">
-            <input type="date" name=event.date [(ngModel)]="event.date | date" class="form-control input-md">
+            <input type="date" name=event.date [(ngModel)]="event.date" class="form-control input-md">
           </div>
         </div>
         <div class="buttons col-md-6">
