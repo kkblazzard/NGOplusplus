@@ -30,7 +30,7 @@ export class FindOrgComponent implements OnInit {
         this.searchError=org['error'];
       }
       else{
-      this.orgs=[org];
+      this.orgs=org;
       }
     });
   }

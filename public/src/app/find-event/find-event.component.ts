@@ -36,7 +36,8 @@ export class FindEventComponent implements OnInit {
         console.log(this.searchError);
       }
       else{
-        this.events=[event];
+        console.log
+        this.events=event;
       }
     });
   }
