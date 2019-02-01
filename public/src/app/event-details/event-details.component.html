@@ -37,7 +37,13 @@
       <button (click)="submitMessage()">Post Message</button>
     </form>
   </div>
+  <div class="messages">
   <div *ngFor="let message of event.messages">
-    <p><span style="font-weight:bold">{{message.authorName}} says:</span> {{message.content}} </p><div class="delete" *ngIf="message.authorId==user" (click)="deleteMessage(message['_id'])">Delete</div>
+
+    <p><span style="font-weight:bold">{{message.authorName}} says:</span> {{message.content}} </p>
+    <div class="delete">
+    <button class="butn btn-outline-secondary" *ngIf="message.authorId==user" (click)="deleteMessage(message['_id'])">Delete</button>
+  </div>
+    <hr>
   </div>
 </div>

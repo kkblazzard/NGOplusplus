@@ -24,6 +24,9 @@ button{
     font-size:20px;
     display:inline-block;
 }
+.details{
+    max-width:40%;
+}
 .buttons{
     text-align: right;
 }

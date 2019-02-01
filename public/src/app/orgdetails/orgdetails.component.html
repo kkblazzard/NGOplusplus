@@ -1,50 +1,53 @@
-<div *ngIf="org" class="logo">
-    <img [src]="org.logo | safe">
+
+<!-- <div *ngIf="org"> -->
+  <div  class="logodiv"> 
+    <img class="logo" [src]="org.logo | safe">
+  </div>
+  <div class="name"> 
     <h1>{{org.name}}</h1>
-    <h3>Our Mission: {{org.mission}}</h3>
-</div>
-  
-  <div *ngIf="events" class="rounded">
+  </div>
+  <div class="mission">
+    <h3>Our Mission:</h3>
+    <h4 >{{org.mission}}</h4>
+  </div>
+<!-- </div> -->
+
+
     <hr>
     <h1 class="primary">Upcoming Events:</h1>
   
-    <div *ngFor="let e of events" class="events">
-      <div class="image">
+
+  <div  *ngFor="let e of events" > 
+    <div class="eventcontainer">
+      <div  class="image">
         <img class="photo" [src]="e.photo">
       </div>
       <div class="details">
-        <a [routerLink]="['/event',e._id]">
-          <h1>{{e.title}}</h1>
-        </a>
-        <div>
-          <p>{{e.details}}</p>
-        </div>
+        <a [routerLink]="['/event',e._id]"><h1>{{e.title}}</h1></a>
+        <div class="eventdetails">
+        <p>{{e.details}}</p>
+      </div>
+
         <p>Date: {{e.date | date: 'EEEE MMM d'}}</p>
         <p>Time:{{e.date | date: 'h:mm a'}}</p>
       </div>
+
     </div>
-  </div>
-  
-  <!-- BUTTON/LINK TO GO TO CREATE EVENT PAGE -->
-  <div *ngIf="admin==true">
-    <a class="btn btn-outline-primary" [routerLink]="['/event/new/' + id]">New Event</a>
-  </div>
-  
-  <!-- BUTTON TO EDIT ORGANIZATION DETAILS -->
-  <div *ngIf="admin==true">
-    <a class="btn btn-outline-primary" [routerLink]="['/orgs/edit/' + id]">Edit Details</a>
-  </div>
-  
-  <!-- BUTTON TO JOIN THE ORGANIZATION (BECOME ADMIN) -->
-  <div *ngIf="admin==false">
-  <h3>Are you a part of this organization?</h3>
-  <button class="btn btn-outline-primary" (click)="addAdmin()">Join</button>
-  </div>
-  
-  
-  
-  <footer *ngIf="org">
-      <p class="text-secondary" style="font-size: 14px; margin: 5px;">{{org.street}}</p>
-      <p class="text-secondary" style="font-size: 14px; margin: 5px;">{{org.city}}, {{org.state}} {{org.zip}}</p>
-      <p class="text-secondary" style="font-size: 14px; margin: 5px;">{{org.phone}} | {{org.email}}</p>
-    </footer>
+
+
+
+
+<hr>
+<footer *ngIf="org">
+  <div class="footaddress">
+  <h6>contact Info:</h6>
+  <h6>{{org.street}}</h6>
+  <h6>{{org.city}}, {{org.state}} {{org.zip}}</h6>
+</div>
+<div class="footcontact">
+  <h6>Phone Number:{{org.phone}}</h6>
+  <h6>Email Address: {{org.email}}</h6>
+</div>
+</footer>
+
+
