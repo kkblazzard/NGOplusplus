@@ -10,6 +10,22 @@
     <h3>Our Mission:</h3>
     <h4 >{{org.mission}}</h4>
   </div>
+  
+  <!-- BUTTON/LINK TO GO TO CREATE EVENT PAGE -->
+  <div *ngIf="admin==true">
+    <a class="btn btn-outline-primary" [routerLink]="['/event/new/' + id]">New Event</a>
+  </div>
+  
+  <!-- BUTTON TO EDIT ORGANIZATION DETAILS -->
+  <div *ngIf="admin==true">
+    <a class="btn btn-outline-primary" [routerLink]="['/orgs/edit/' + id]">Edit Details</a>
+  </div>
+  
+  <!-- BUTTON TO JOIN THE ORGANIZATION (BECOME ADMIN) -->
+  <div *ngIf="admin==false">
+    <h3>Are you a part of this organization?</h3>
+    <button class="btn btn-outline-primary" (click)="addAdmin()">Join</button>
+  </div>
 </div>
 
 
@@ -33,9 +49,7 @@
       </div>
 
     </div>
-
-
-
+    </div>
 
 <hr>
 <footer *ngIf="org">
