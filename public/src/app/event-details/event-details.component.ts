@@ -117,15 +117,32 @@ export class EventDetailsComponent implements OnInit {
 //-----------for adding co-sponsor-------------------
   addCosponsor(){
     console.log("addCosponsor clicked");
-    // this.eventWnewHost={'host': this.userObj.orgId};
-    this.event.host.push(this.userObj['orgId']);
-    this._httpService.updateEvent(this.eventId, this.event)
-      .subscribe(data=>{
-        console.log("event host added, ", data);
-        this.getEvent(this.eventId);
-        this.showCohost=false;
-        this.admin=true;
-      })
+    return this._httpService.getOrg(this.userObj['orgId'])
+      .subscribe(org => {
+        //get the org that the user is associated with
+        org["events"].push(this.eventId) //add this even to that org
+        this._httpService.updateOrg(this.userObj['orgId'], org)
+        .subscribe(data => {
+          //update that org with the new eventid added
+          if (data['errors']) {
+            console.log("This is data['errors'] for updating the org");
+            console.log(data['errors'])
+          }
+          else {
+            this.event.host.push(this.userObj['orgId']);//add the organization id to the event host list
+            this._httpService.updateEvent(this.eventId, this.event)//update the event with the new organization
+              .subscribe(data=>{
+                console.log("event host added, ", data);
+                this.getEvent(this.eventId);
+                this.showCohost=false;
+                this.admin=true;
+              })
+          }
+        })
+      });
+    //#####################
+    //the event needs to be added to their organizations event array
+    //the org is this.userObj['orgId'], and the event id is this.eventId
   }
 
 // -----------current login user detail-----------------
