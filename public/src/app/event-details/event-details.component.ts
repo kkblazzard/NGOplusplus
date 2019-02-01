@@ -18,9 +18,9 @@ export class EventDetailsComponent implements OnInit {
   eventmessages: any;
   newMessage: any;
   googlemap: any = "https://www.google.com/maps/embed/v1/search?key=AIzaSyB9458WCJDqSCuz6GbbWXGFaG7aba4flQA&q=";
-
+  admin:any;
   userObj:any;  //whoe user obj incl orgId
-  userOrgAdmin:any;
+  showCohost:any;
   eventWnewHost: any;
   
   constructor(private _httpService: HttpService,
@@ -43,6 +43,8 @@ export class EventDetailsComponent implements OnInit {
     }
     this.sponsors = [];
     this.eventmessages = [];
+    this.showCohost=true;
+    this.admin=false;
 
   }
   ngOnInit() {
@@ -56,36 +58,21 @@ export class EventDetailsComponent implements OnInit {
       authorName: "",
       content: ""
     }
-    this.getUserObj();
   }
   getEvent(id) {
     console.log("##################################################");
     console.log("user: ", this.user);
     this._httpService.getEvent(id)
-      .subscribe(event => {
-        this.event = event;
-        this.map = `${this.googlemap}${this.event.street} ${this.event.city}, ${this.event.state}`;
-        console.log(event);
-        console.log(this.map)
-        console.log("6935 37th Ave SW. Seattle, WA")
-        // this.hostId=this.event.host[0]
-        // console.log("hostId",this.hostId)
-        this.sponsors = [];
-        this.event.host.forEach(orgId => {
-          this.getOrg(orgId)
+    .subscribe(event => {
+      this.event = event;
+      this.map = `${this.googlemap}${this.event.street} ${this.event.city}, ${this.event.state}`;
+      console.log(event);
+      console.log(this.map)
+      this.sponsors = [];
+      this.event.host.forEach(orgId => {
+        this.getOrg(orgId)
+        this.getUserObj();
         });
-        // for (var i=0;i<this.event.messages.length;i++){
-        //   getUser(this.event.message[1]["authorId"], function(){
-
-        //   })
-        // }
-
-
-        // this.host=this.getOrg(this.hostId);
-        // if(this.event.host[1]){
-        //   this.cohostId=this.event.host[1];
-        //   this.cohost=this.getOrg(this.cohostId);
-        // }
       });
   };
   getOrg(id) {
@@ -99,19 +86,6 @@ export class EventDetailsComponent implements OnInit {
       });
   };
 
-  // getUser(id, callback){
-  //   return this._httpService.getUser(id)
-  //   .subscribe(user=>{
-
-  //   })
-  // }
-  //###################################################################
-  //ADD THIS TO HTTP SERVICE FILE
-  // getUser(id){
-  //   console.log("httpSErvice getting user",id);
-  //   return this._http.get(`/api/users/${id}`);
-  // }
-  //###########################################################
   submitMessage() {
     this.newMessage.authorId = this.user;
     return this._httpService.getUser(this.user)
@@ -149,6 +123,8 @@ export class EventDetailsComponent implements OnInit {
       .subscribe(data=>{
         console.log("event host added, ", data);
         this.getEvent(this.eventId);
+        this.showCohost=false;
+        this.admin=true;
       })
   }
 
@@ -161,11 +137,21 @@ export class EventDetailsComponent implements OnInit {
       //also check if user is admin
       if (this.userObj['orgId'] != null){
         console.log("user has orgId, UserOrgAdmin true")
-        this.userOrgAdmin = true;
+        this.sponsors.forEach(orgId => {
+          console.log("I'm checking the sponsors to see if the user is among them")
+          console.log(orgId[0]);
+          console.log(user["orgId"])
+          if (orgId[0]==user["orgId"]){
+            console.log("THE USER IS AMONG THEM")
+            this.showCohost = false;
+            this.admin=true;
+          }
+        })
+        //check if the user's org id is in the array of sponsors.
       }
       else {
-        console.log("user does not have orgId, UserOrgAdmin false")
-        this.userOrgAdmin = false;
+        console.log("user does not have orgId, showCohost false")
+        this.showCohost = false;
       }
     })
   }
