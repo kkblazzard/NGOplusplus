@@ -8,54 +8,54 @@
       <img style="height:250px" class="photo" [src]="event.photo">
     </div>
     <br>
-    <div class="detailscontainer">
-      <div class="details">
-        <h1>{{event.title}}</h1>
-        <p>{{event.details}}</p>
-        <p>Date: {{event.date | date: 'EEEE MMM d'}}</p>
-        <p>Time:{{event.date | date: 'h:mm a'}}</p>
-      </div>
-      <div class="address">
-        <h5>Address:</h5>
-        <p>{{event.street}} </p>
-        <p>{{event.city}}, {{event.state}} {{event.zip}}</p>
-      </div>
-      <!-- BUTTON TO EDIT ORGANIZATION DETAILS -->
-      <div *ngIf="admin==true">
-        <a class="btn btn-outline-primary" [routerLink]="['/event/edit/'+ eventId]">Edit Details</a>
-      </div>
-    </div>
-
-
-    <h4>Host Organizations:</h4>
-    <div *ngFor="let sponsor of sponsors">
-      <p><a [routerLink]="['/orgs','details',sponsor[0]]">{{sponsor[1]}}</a></p>
-    </div>
-    <div *ngIf="showCohost == true">
-      <p>Want to co-sponsor the event?</p>
-      <button (click)="addCosponsor()">co-sponsor</button>
-    </div>
-  </div>
-  <div class="map">
-    <iframe width="400px" height="400px" frameborder="0" style="border:0" [src]="map | safe" allowfullscreen></iframe>
-  </div>
-  <div class="messages">
-    <div>
-      <h4>Post a Message to the Event</h4>
-      <form>
-        <input type="text" name="content" [(ngModel)]="newMessage.content" />
-        <button (click)="submitMessage()">Post Message</button>
-      </form>
-      <br>
-    </div>
-    <div *ngFor="let message of event.messages">
-      <div>
-        <p><span style="font-weight:bold">{{message.authorName}} says:</span> {{message.content}} </p>
-        <div class="delete">
-          <button class="butn btn-outline-secondary" *ngIf="message.authorId==user" (click)="deleteMessage(message['_id'])">Delete</button>
+    <div class="main">
+      <div class="detailscontainer left">
+        <div class="details">
+          <h1>{{event.title}}</h1>
+          <p>{{event.details}}</p>
+          <p>Date: {{event.date | date: 'EEEE MMM d'}}</p>
+          <p>Time:{{event.date | date: 'h:mm a'}}</p>
+          <h5>Address:</h5>
+          <p>{{event.street}} </p>
+          <p>{{event.city}}, {{event.state}} {{event.zip}}</p>
+        </div>
+        <!-- BUTTON TO EDIT ORGANIZATION DETAILS -->
+        <div *ngIf="admin==true">
+          <a class="btn btn-outline-primary" [routerLink]="['/event/edit/'+ eventId]">Edit Details</a>
         </div>
       </div>
-      <hr>
+
+      <div class="map right">
+        <iframe width="300px" height="300px" frameborder="0" style="border:0" [src]="map | safe" allowfullscreen></iframe>
+      </div>
+      <h4>Host Organizations:</h4>
+      <div *ngFor="let sponsor of sponsors">
+        <p><a [routerLink]="['/orgs','details',sponsor[0]]">{{sponsor[1]}}</a></p>
+      </div>
+      <div *ngIf="showCohost == true">
+        <p>Want to co-sponsor the event?</p>
+        <button (click)="addCosponsor()">co-sponsor</button>
+      </div>
+      <div *ngIf="signedin" class="messages">
+        <div>
+          <h4>Post a Message to the Event</h4>
+          <form>
+            <input type="text" name="content" [(ngModel)]="newMessage.content" />
+            <button (click)="submitMessage()">Post Message</button>
+          </form>
+          <br>
+        </div>
+        <div *ngFor="let message of event.messages">
+          <div>
+            <p><span style="font-weight:bold">{{message.authorName}} says:</span> {{message.content}} </p>
+            <div class="delete">
+              <button class="butn btn-outline-secondary" *ngIf="message.authorId==user" (click)="deleteMessage(message['_id'])">Delete</button>
+            </div>
+          </div>
+          <hr>
+        </div>
+      </div>
     </div>
   </div>
+
 </div>
