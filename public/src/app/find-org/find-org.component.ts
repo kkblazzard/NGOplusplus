@@ -26,12 +26,17 @@ export class FindOrgComponent implements OnInit {
   searchaOrg(){
     this._httpService.postOrgName({'title':{"$regex":this.orgSearch.title,"$options":"i"}})
     .subscribe(org=>{
+      if(org){
       if(org['error']){
         this.searchError=org['error'];
       }
       else{
       this.orgs=org;
       }
+    }
+    else{
+      this.orgs=[];
+    }
     });
   }
 }

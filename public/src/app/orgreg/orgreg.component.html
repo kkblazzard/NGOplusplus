@@ -1,5 +1,4 @@
-	
-11:49 AM
+
 <h1>Register your Organization</h1>
 
 
@@ -23,31 +22,31 @@
   <form (submit)="newOrgSubmission()" class="postForm form-horizontal">
     <div *ngIf="step1">
 <div class="form-group">
-        <label class="col-md-4 control-label">Organisation Name:</label>
+        <label class="col-md-4 control-label">Organization Name:</label>
         <div class="col-md-6">
           <input type="text" name="newOrg.name" [(ngModel)]="newOrg.name" class="form-control input-md">
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4 control-label">Organisation Phone Number:</label>
+        <label class="col-md-4 control-label">Organization Phone Number:</label>
         <div class="col-md-6">
           <input type="text" name="newOrg.phone" [(ngModel)]="newOrg.phone" class="form-control input-md">
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4 control-label">Organisation Email Address:</label>
+        <label class="col-md-4 control-label">Organization Email Address:</label>
         <div class="col-md-6">
           <input type="text" name="newOrg.email" [(ngModel)]="newOrg.email" class="form-control input-md">
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4 control-label">Organisation EIN:</label>
+        <label class="col-md-4 control-label">Organization EIN:</label>
         <div class="col-md-6">
           <input type="number" name="newOrg.ein" [(ngModel)]="newOrg.ein" class="form-control input-md">
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4 control-label">Mission Statment:</label>
+        <label class="col-md-4 control-label">Mission Statement:</label>
         <div class="col-md-6">
           <textarea class="mission form-control" type="text" name="newOrg.mission" [(ngModel)]="newOrg.mission"></textarea>
         </div>
@@ -59,25 +58,25 @@
     </div>
     <div *ngIf="step2">
       <div class="form-group">
-        <label class="col-md-4 control-label">Organisation Street Address:</label>
+        <label class="col-md-4 control-label">Organization Street Address:</label>
         <div class="col-md-6">
           <input type="text" name="newOrg.street" [(ngModel)]="newOrg.street" class="form-control input-md">
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4 control-label">Organisation City:</label>
+        <label class="col-md-4 control-label">Organization City:</label>
         <div class="col-md-6">
           <input type="text" name="newOrg.city" [(ngModel)]="newOrg.city" class="form-control input-md">
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4 control-label">Organisation State:</label>
+        <label class="col-md-4 control-label">Organization State:</label>
         <div class="col-md-6">
           <input type="text" name="newOrg.state" [(ngModel)]="newOrg.state" class="form-control input-md">
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4 control-label">Organisation Zip:</label>
+        <label class="col-md-4 control-label">Organization Zip:</label>
         <div class="col-md-6">
           <input type="number" name="newOrg.zip" [(ngModel)]="newOrg.zip" class="form-control input-md">
         </div>
