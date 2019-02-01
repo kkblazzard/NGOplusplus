@@ -20,18 +20,40 @@ footer{
 }
 .events{
     margin-top:2%;
-    width:50%;
-    height:400px;
+    max-width:50%;
+    max-height:400px;
+    margin-left:10px;
     
 
 }
 .alert{
     color:rgb(23, 172, 18);
 }
-.logo{
-    margin-left:45%;
+.logodiv{
+    margin-left:5%;
+    display:inline-block;
+    max-height:150px;
 }
-.background{
+.logo{
+    max-height:150px;
+}
+.name{
+    display:inline-block;
+
+    margin-left:10%;
+}
+.mission{
+    display:inline-block;
+    margin-left:30%;
+    margin-top:20px;
+    max-width:20%;
+
+}
+.eventcontainer{
+    max-width:30%;
+    margin-left:5%;
+}
+/* .background{
     background-image: url('../../assets/img/Event_background.jpg');
     background-size: cover;
-}
+} */

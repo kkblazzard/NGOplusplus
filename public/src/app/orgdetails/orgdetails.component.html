@@ -1,34 +1,39 @@
-<div *ngIf="org" class="logo"> 
-  <img  [src]="org.logo | safe">
-  <h1>{{org.name}}</h1>
-  <h3>Our Mission:</h3>
-  <h4 >{{org.mission}}</h4>
-</div>
-<div *ngIf="events" class="background">
+<!-- <div *ngIf="org"> -->
+  <div  class="logodiv"> 
+    <img class="logo" [src]="org.logo | safe">
+  </div>
+  <div class="name"> 
+    <h1>{{org.name}}</h1>
+  </div>
+  <div class="mission">
+    <h3>Our Mission:</h3>
+    <h4 >{{org.mission}}</h4>
+  </div>
+<!-- </div> -->
+
     <hr>
   <h1 class="alert">Upcoming Events:</h1>
   
-  <div  *ngFor="let e of events" class="events"> 
+  <div  *ngFor="let e of events" > 
+    <div class="eventcontainer">
       <div  class="image">
         <img class="photo" [src]="e.photo">
       </div>
       <div class="details">
         <a [routerLink]="['/event',e._id]"><h1>{{e.title}}</h1></a>
-        <div class="mission">
+        <div class="eventdetails">
         <p>{{e.details}}</p>
       </div>
         <p>Date: {{e.date | date: 'EEEE MMM d'}}</p>
         <p>Time:{{e.date | date: 'h:mm a'}}</p>
       </div>
-        <div class="map">
-            <iframe width="200px" height="200px" frameborder="0" style="border:0" [src]="e.map | safe" allowfullscreen></iframe>
-      </div>
     </div>
-  </div>
+    </div>
 
 
 
 
+<hr>
 <footer *ngIf="org">
   <div class="footaddress">
   <h6>contact Info:</h6>
