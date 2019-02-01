@@ -18,6 +18,9 @@ export class OrgdetailsComponent implements OnInit {
     events:any=[];
     event:any;
     googlemap:any="https://www.google.com/maps/embed/v1/search?key=AIzaSyB9458WCJDqSCuz6GbbWXGFaG7aba4flQA&q=";
+
+    isLoggedin = false;
+    // canJoin: any;
     
   ngOnInit() {
     this.admin=false;
@@ -57,7 +60,14 @@ export class OrgdetailsComponent implements OnInit {
       this.id=params['id'];
       this.getOrg()
     });
+    
+    if(localStorage.getItem('loginUserID') != null){
+      this.isLoggedin = true;
+      console.log("user is logged in", this.isLoggedin);
+    }
   }
+
+
   getOrg(){
     this._httpService.getOrg(this.id)
     .subscribe(org=>{
@@ -68,6 +78,7 @@ export class OrgdetailsComponent implements OnInit {
         if (person==localStorage.getItem('loginUserID')){
           this.admin=true;
         }
+        console.log("Admin status", this.admin);
       })
       console.log("pulled a Org from db",org);
       console.log("Org",this.org)

@@ -1,15 +1,76 @@
-.details{
-    max-width:40%;
-    display:inline-block;
-    margin-left:5%;
-}
 .map{
     display:inline-block;
 }
-footer{
-    margin-top:5%;
-    width:100%;
 
+.alert{
+    color:rgb(23, 172, 18);
+}
+
+.title{
+    text-align: center;
+}
+
+
+.logo{
+
+    display:inline-block;
+    max-height:150px;
+    max-height:150px;
+}
+.name{
+    display:inline-block;
+    margin-left:5%;
+
+}
+.mission{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.Buttons{
+    text-align: center;
+}
+.Buttons *{
+    margin: 10px;
+}
+
+.eventsBody{
+    margin: 20px;
+}
+
+.eventcontainer{
+    margin-left:5%;
+}
+
+
+.events{
+    margin-top:2%;
+    max-width:50%;
+    max-height:400px;
+    margin-left:10px;
+}
+
+.details{
+    width:40%;
+    display:inline-block;
+    margin:10px;
+    /* vertical-align: top; */
+}
+
+.eventdetails{
+    max-height: 200px;
+    overflow: auto;
+}
+
+.eventImage{
+    display: inline-block;
+    vertical-align: top;
+    height:150px;
+    margin: 10px;
+}
+
+.contacts{
+    text-align: center;
 }
 .footaddress{
     display:inline-block;
@@ -18,47 +79,5 @@ footer{
 .footcontact{
     display:inline-block;
     vertical-align: bottom;
-    margin-left:60%;
+    margin-left:20px;
 }
-.events{
-    margin-top:2%;
-    max-width:50%;
-    max-height:400px;
-    margin-left:10px;
-    
-
-}
-.alert{
-    color:rgb(23, 172, 18);
-}
-.logodiv{
-    margin-left:5%;
-    display:inline-block;
-    max-height:150px;
-}
-.logo{
-
-    max-height:150px;
-}
-.name{
-    display:inline-block;
-
-    margin-left:27%;
-
-}
-.mission{
-    display:inline-block;
-    margin-left:20%;
-    margin-top:20px;
-    max-width:20%;
-    vertical-align: middle;
-
-}
-.eventcontainer{
-    /* max-width:30%; */
-    margin-left:5%;
-}
-/* .background{
-    background-image: url('../../assets/img/background2.jpeg');
-    background-size: cover;
-} */
