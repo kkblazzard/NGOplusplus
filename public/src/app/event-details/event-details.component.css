@@ -15,7 +15,10 @@
     margin-left:5%;
     max-width:30%;
 }
-
+.details{
+    max-height:250px;
+    overflow: auto;
+}
 .map{
 height:20%;
 margin-left: 115px;
