@@ -15,19 +15,16 @@
     margin-left:5%;
     max-width:30%;
 }
-.details{
-    margin-left:5%;
-    max-width:30%;
 
-}
 .map{
 height:20%;
+margin-left: 115px;
 display:inline-block;
 vertical-align:bottom;
 }
 .detailscontainer{
     width: 35%;
-    margin-left:10%;
+    margin-left: -37px;
     display:inline-block;
     vertical-align:top;
 }
