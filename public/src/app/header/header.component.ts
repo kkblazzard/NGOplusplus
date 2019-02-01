@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
@@ -8,7 +8,10 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
+  ngAfterViewInit(): void {
+
+  }
   loggedin:boolean=false;
   userID: string;
   searchOrg:boolean=true;
@@ -42,9 +45,10 @@ export class HeaderComponent implements OnInit {
   }
   scroll(id){
     this._router.navigate(['']);
-    let el = document.getElementById(id);
-
-    el.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'})
+    setTimeout(() => {
+      let el = document.getElementById(id);
+      el.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'})
+    }, 50);
     }
   }
 
