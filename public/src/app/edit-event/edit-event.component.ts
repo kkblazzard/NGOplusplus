@@ -30,7 +30,7 @@ export class EditEventComponent implements OnInit {
 
     this.event = {
       title: "",
-      date: Date,
+      date: new Date,
       ampm: "",
       time: "",
       street: "",

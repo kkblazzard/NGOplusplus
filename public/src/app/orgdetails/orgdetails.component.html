@@ -1,67 +1,56 @@
 
 <div class="background" *ngIf="org">
-  <div  class="logodiv"> 
+  <div class="title">
     <img style="height:150px" class="logo" [src]="org.logo | safe">
+    <h1 class="name">{{org.name}}</h1>
   </div>
-  <div class="name"> 
-    <h1>{{org.name}}</h1>
+
+<div class="contacts" *ngIf="org">
+    <div class="footaddress">
+    <h6>{{org.street}}</h6>
+    <h6>{{org.city}}, {{org.state}} {{org.zip}}</h6>
   </div>
+  <div class="footcontact">
+    <h6>Phone:{{org.phone}}</h6>
+    <h6 >Email: <a href="mailto:{{org.email}}">{{org.email}}</a></h6>
+  </div>
+</div>
+
   <div class="mission">
     <h3>Our Mission:</h3>
     <h4 >{{org.mission}}</h4>
   </div>
 
-  <!-- BUTTON/LINK TO GO TO CREATE EVENT PAGE -->
-  <div *ngIf="admin==true">
-    <a class="btn btn-outline-primary" [routerLink]="['/event/new/' + id]">New Event</a>
-  </div>
-  
+
+<div class="Buttons" *ngIf="admin==true" >
+    <!-- BUTTON/LINK TO GO TO CREATE EVENT PAGE -->
+    <a class="btn btn-outline-primary" [routerLink]="['/event/new/' + id]">Add New Event</a>
   <!-- BUTTON TO EDIT ORGANIZATION DETAILS -->
-  <div *ngIf="admin==true">
-    <a class="btn btn-outline-primary" [routerLink]="['/orgs/edit/' + id]">Edit Details</a>
-  </div>
-  
-  <!-- BUTTON TO JOIN THE ORGANIZATION (BECOME ADMIN) -->
-  <div *ngIf="admin==false">
-    <h3>Are you a part of this organization?</h3>
-    <button class="btn btn-outline-primary" (click)="addAdmin()">Join</button>
-  </div>
+    <a class="btn btn-outline-primary" [routerLink]="['/orgs/edit/' + id]">Edit Organization Details</a>
+    
+</div>
+    <!-- BUTTON TO JOIN THE ORGANIZATION (BECOME ADMIN) -->
+<div class="Buttons" *ngIf="isLoggedin && admin==false">
+  <h3>Are you a part of this organization?</h3>
+  <button class="btn btn-outline-primary" (click)="addAdmin()">Join as admin</button>
 </div>
 
 
     <hr>
-    <h1 class="primary">Upcoming Events:</h1>
-  
+<div class="eventsBody">
+  <h2 class="primary">Upcoming Events:</h2>
 
-  <div  *ngFor="let e of events" > 
-    <div class="eventcontainer">
-      <div  class="image">
-        <img style="height:150px" class="photo" [src]="e.photo">
-      </div>
+  <div class="eventcontainer" *ngFor="let e of events" > 
       <div class="details">
-        <a [routerLink]="['/event',e._id]"><h1>{{e.title}}</h1></a>
-        <div class="eventdetails">
-        <p>{{e.details}}</p>
+        <a [routerLink]="['/event',e._id]">
+          <h3>{{e.title}}</h3>
+        </a>
+        <p class="eventdetails"> <strong>Details: </strong>{{e.details}}</p>
+        <p> <strong>Date: </strong>{{e.date | date: 'EEEE MMM d'}}</p>
+        <p><strong>Time:</strong>{{e.date | date: 'h:mm a'}}</p>
       </div>
-
-        <p>Date: {{e.date | date: 'EEEE MMM d'}}</p>
-        <p>Time:{{e.date | date: 'h:mm a'}}</p>
-      </div>
-
-    </div>
-    </div>
-
-<hr>
-<footer *ngIf="org">
-  <div class="footaddress">
-  <h6>contact Info:</h6>
-  <h6>{{org.street}}</h6>
-  <h6>{{org.city}}, {{org.state}} {{org.zip}}</h6>
+      <img class="eventImage" [src]="e.photo">
+  </div>
 </div>
-<div class="footcontact">
-  <h6>Phone Number:{{org.phone}}</h6>
-  <h6 >Email Address: <a href="mailto:{{org.email}}">{{org.email}}</a></h6>
-</div>
-</footer>
 
 
