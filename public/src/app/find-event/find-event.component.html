@@ -15,6 +15,7 @@
     <div class="date">
       <p>{{e.date | date: 'MMM d'}}</p>
     </div>
+    <br>
     <div class="info">
         <a [routerLink]="['/event',e._id]"><h3>{{e.title}}</h3></a>
       <p><i class="far fa-calendar-alt"> {{e.date | date: 'EEEE'}} </i> <i class="far fa-clock">{{e.date | date:'h:mm a'}} </i> <i class="fas fa-location-arrow"></i>{{e.address}}</p>
