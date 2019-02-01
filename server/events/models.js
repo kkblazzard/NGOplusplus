@@ -14,8 +14,6 @@ var messageSchema = new mongoose.Schema({
 var eventSchema = new mongoose.Schema({
         title:{type: String, required:true, minlength:4},
         date:{type: Date}, 
-        time:{type: String},
-        ampm:{type: String},
         street:{type:String},
         city:{type:String},
         state:{type:String},

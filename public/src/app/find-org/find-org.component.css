@@ -3,12 +3,24 @@
     max-width:100px
     }
     
-    .org{
+    .event{
         width:20%;
         height:150px;
         display:inline-block;
         vertical-align:top;
-        border:2px solid black;
+        border:2px solid rgb(78, 76, 76);
         margin-left:10%;
         margin-top:3%;
+    }
+    .event:hover{
+
+        background-color: rgb(78, 76, 76);
+    }
+    .title{
+        display:inline-block;
+    }
+    .searchOrg{
+        display:inline-block;
+        float:right;
+        margin-right:10%;
     }

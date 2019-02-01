@@ -8,4 +8,5 @@ module.exports=function(app){
     .patch('/api/events/:id', controller.messageNew)
     .delete('/api/events/:id', controller.eventRemove)
     .delete('/api/events/:eventid/:messageid', controller.messageDelete)
+    .post('/api/events/name', controller.eventName)
 }

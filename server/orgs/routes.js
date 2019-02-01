@@ -7,4 +7,6 @@ module.exports=function(app){
         .get('/api/orgs/:id', controller.orgDetails)
         .put('/api/orgs/:id', controller.orgUpdate)
         .delete('/api/orgs/:id', controller.orgRemove)
+        .get('/api/orgs/name', controller.orgName)
+        .post('/api/orgs/name', controller.orgName)
     }

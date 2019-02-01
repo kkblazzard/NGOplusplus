@@ -1,6 +1,17 @@
 <div>
+  <div class="title">
     <h2>List of Orgs</h2>
-    <div class="org" *ngFor= "let o of orgs" [routerLink]="['/orgs','details',o._id]">
+  </div>
+    <div class="searchOrg">
+        <form  class="postForm">
+            <label class="search">Search for Organization by name</label>
+            <input type=text name=orgSearch.title [(ngModel)]="orgSearch.title">
+            <button (click)="searchaOrg()" class="btn btn-outline-info">Search</button>
+            <button (click)="getAllOrgs()" class="btn btn-outline-info">Show all</button>
+        </form>
+    </div>
+    <br>
+    <div class="event" *ngFor= "let o of orgs" [routerLink]="['/orgs','details',o._id]">
       <img class="logo" [src]="o.logo">
       <div style="display: inline-block; text-align: center;">
         <h4 class="font-weight-bold">{{o.name}}</h4>

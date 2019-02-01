@@ -44,6 +44,11 @@ addOrg(newOrg) {
 getAllOrgs() {
   return this._http.get('/api/orgs');
 }
+postOrgName(name){
+  console.log("searching db for org name",name);
+  return this._http.post('/api/orgs/name', name);
+}
+
 
 
 // --------------------Events-----------------------
@@ -66,6 +71,10 @@ updateEvent(id, eventUpdate) {
 deleteEvent(id) {
   console.log("in http.service delete event");
   return this._http.delete('/api/events/' + id);
+}
+postEventName(name){
+  console.log("searching db for event name",name);
+  return this._http.post('/api/events/name', name);
 }
 
 

@@ -18,7 +18,7 @@ module.exports={
             .catch(err=>res.json(err))
     },
     messageDelete:(req, res)=>{
-        console.log("In messageDelete in controller")
+        console.log("In messageDelete in controller");
         var eventId= mongoose.Types.ObjectId(req.params.eventid);
         var messageId= mongoose.Types.ObjectId(req.params.messageid);
 
@@ -39,10 +39,10 @@ module.exports={
         .then(updated =>console.log("updated",updated)||res.json(updated))
         .catch(err=>console.log(err) || res.json(err)),
 
-    // eventAddHost: (req, res) => Events
-    //     .findByIdAndUpdate(req.params.id, {
-    //         $push:{host: req.body.orgid}
-    //     })
-    //     .then(updated =>console.log("updated",updated)||res.json(updated))
-    //     .catch(err=>console.log(err) || res.json(err)),
+    eventName: (req, res) =>{
+        console.log("in event name",req.body)
+        Events.findOne({title:req.body.title})
+        .then( event=> console.log("in Event controller search name", event) || res.json(event))
+        .catch(err=>console.log(err) || res.json(err))
+        }
 }
