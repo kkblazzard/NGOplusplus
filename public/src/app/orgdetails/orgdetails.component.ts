@@ -13,12 +13,14 @@ export class OrgdetailsComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router) { }
     id:any;
+    admin:any;
     org:any="";
     events:any=[];
     event:any;
     googlemap:any="https://www.google.com/maps/embed/v1/search?key=AIzaSyB9458WCJDqSCuz6GbbWXGFaG7aba4flQA&q=";
     
   ngOnInit() {
+    this.admin=false;
     this.event={
       title: "",
       date: Date,
@@ -60,6 +62,13 @@ export class OrgdetailsComponent implements OnInit {
     this._httpService.getOrg(this.id)
     .subscribe(org=>{
       this.org=org;
+      this.org.admins.forEach(person=>{
+        console.log("ADMIN:", person);
+        console.log("USER:", localStorage.getItem('loginUserID'));
+        if (person==localStorage.getItem('loginUserID')){
+          this.admin=true;
+        }
+      })
       console.log("pulled a Org from db",org);
       console.log("Org",this.org)
       this.org.events.forEach(element => {
@@ -77,5 +86,12 @@ export class OrgdetailsComponent implements OnInit {
         this.event.map = `${this.googlemap}${this.event.street} ${this.event.city}, ${this.event.state}`;
         this.events.push(this.event);
       });
+    }
+    addAdmin(){
+      this.org.admins.push(localStorage.getItem('loginUserID'));
+      this._httpService.updateOrg(this.id, this.org)
+        .subscribe(org=>{
+          this.getOrg()
+        })
     }
 }

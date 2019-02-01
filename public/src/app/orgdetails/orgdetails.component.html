@@ -1,3 +1,4 @@
+
 <!-- <div *ngIf="org"> -->
   <div  class="logodiv"> 
     <img class="logo" [src]="org.logo | safe">
@@ -11,9 +12,11 @@
   </div>
 <!-- </div> -->
 
+
     <hr>
-  <h1 class="alert">Upcoming Events:</h1>
+    <h1 class="primary">Upcoming Events:</h1>
   
+
   <div  *ngFor="let e of events" > 
     <div class="eventcontainer">
       <div  class="image">
@@ -24,10 +27,11 @@
         <div class="eventdetails">
         <p>{{e.details}}</p>
       </div>
+
         <p>Date: {{e.date | date: 'EEEE MMM d'}}</p>
         <p>Time:{{e.date | date: 'h:mm a'}}</p>
       </div>
-    </div>
+
     </div>
 
 
@@ -45,4 +49,5 @@
   <h6>Email Address: {{org.email}}</h6>
 </div>
 </footer>
+
 
