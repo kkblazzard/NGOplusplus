@@ -22,6 +22,7 @@ export class EventDetailsComponent implements OnInit {
   userObj:any;  //whoe user obj incl orgId
   showCohost:any;
   eventWnewHost: any;
+  signedin:any;
   
   constructor(private _httpService: HttpService,
     private _route: ActivatedRoute,
@@ -45,6 +46,7 @@ export class EventDetailsComponent implements OnInit {
     this.eventmessages = [];
     this.showCohost=true;
     this.admin=false;
+    this.signedin=false;
 
   }
   ngOnInit() {
@@ -153,6 +155,7 @@ export class EventDetailsComponent implements OnInit {
       console.log("got the user object", this.userObj);
       //also check if user is admin
       if (this.userObj['orgId'] != null){
+        this.signedin=true;
         console.log("user has orgId, UserOrgAdmin true")
         this.sponsors.forEach(orgId => {
           console.log("I'm checking the sponsors to see if the user is among them")
