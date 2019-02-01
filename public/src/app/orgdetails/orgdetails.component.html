@@ -1,5 +1,5 @@
 
-<!-- <div *ngIf="org"> -->
+<div class="background" *ngIf="org">
   <div  class="logodiv"> 
     <img class="logo" [src]="org.logo | safe">
   </div>
@@ -10,7 +10,7 @@
     <h3>Our Mission:</h3>
     <h4 >{{org.mission}}</h4>
   </div>
-<!-- </div> -->
+</div>
 
 
     <hr>
@@ -46,7 +46,7 @@
 </div>
 <div class="footcontact">
   <h6>Phone Number:{{org.phone}}</h6>
-  <h6>Email Address: {{org.email}}</h6>
+  <h6 >Email Address: <a href="mailto:{{org.email}}">{{org.email}}</a></h6>
 </div>
 </footer>
 

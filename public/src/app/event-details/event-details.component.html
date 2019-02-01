@@ -4,10 +4,11 @@
     crossorigin="anonymous">
 </head>
 
-<div class="container">
-  <div *ngIf="event" class="image">
-    <img class="photo" [src]="event.photo">
-  </div>
+<div *ngIf="event" class="image">
+  <img class="photo" [src]="event.photo">
+</div>
+<br>
+<div class="detailscontainer">
   <div class="details">
     <h1>{{event.title}}</h1>
     <p>{{event.details}}</p>
@@ -19,17 +20,21 @@
     <p>{{event.street}} </p>
     <p>{{event.city}}, {{event.state}} {{event.zip}}</p>
   </div>
-  <div class="map">
-    <iframe width="400px" height="400px" frameborder="0" style="border:0" [src]="map | safe" allowfullscreen></iframe>
-  </div> 
+
+
   <h4>Host Organizations:</h4>
   <div *ngFor="let sponsor of sponsors">
     <p><a [routerLink]="['/orgs','details',sponsor[0]]" >{{sponsor[1]}}</a></p>
   </div>
   <div *ngIf="userOrgAdmin == true">      
-      <p>Want to co-sponsor the event?</p>
-      <button (click)="addCosponsor()">co-sponsor</button>
+    <p>Want to co-sponsor the event?</p>
+    <button (click)="addCosponsor()">co-sponsor</button>
   </div>
+</div>
+<div class="map">
+    <iframe width="400px" height="400px" frameborder="0" style="border:0" [src]="map | safe" allowfullscreen></iframe>
+  </div> 
+  <div class="messages">
   <div>
     <h4>Post a Message to the Event</h4>
     <form>
@@ -37,7 +42,6 @@
       <button (click)="submitMessage()">Post Message</button>
     </form>
   </div>
-  <div class="messages">
   <div *ngFor="let message of event.messages">
 
     <p><span style="font-weight:bold">{{message.authorName}} says:</span> {{message.content}} </p>
