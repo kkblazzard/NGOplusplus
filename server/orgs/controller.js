@@ -23,7 +23,7 @@ module.exports={
         .catch(err=>console.log(err) || res.json(err)),
     orgName: (req, res) =>{
         console.log("in org controller name search",req.body)
-        Orgs.findOne({name:req.body.title})
+        Orgs.find({name:req.body.title})
         .then( org=> console.log("in Org controller search name", org) || res.json(org))
         .catch(err=>console.log(err) || res.json(err))
     }

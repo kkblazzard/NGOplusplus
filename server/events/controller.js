@@ -41,7 +41,7 @@ module.exports={
 
     eventName: (req, res) =>{
         console.log("in event name",req.body)
-        Events.findOne({title:req.body.title})
+        Events.find({title:req.body.title})
         .then( event=> console.log("in Event controller search name", event) || res.json(event))
         .catch(err=>console.log(err) || res.json(err))
         }
