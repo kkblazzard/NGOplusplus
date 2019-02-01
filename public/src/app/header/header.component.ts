@@ -10,7 +10,8 @@ import { HttpService } from '../http.service';
 export class HeaderComponent implements OnInit {
   loggedin:boolean=false;
   userID: string;
-
+  searchOrg:boolean=true;
+  searchEvent:boolean=false;
   constructor(private _httpService: HttpService){}
 
   ngOnInit(){
@@ -22,5 +23,4 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     ;
   }
-  
 }

@@ -1,6 +1,16 @@
 
 <div>
+  <div class="title">
   <h3>Event Calendar</h3>
+</div>
+  <div class=searchEvent>
+      <form  class="postForm">
+          <label class="search">Search Event by name</label>
+          <input type=text name=eventSearch.title [(ngModel)]="eventSearch.title">
+          <button (click)="searchaEvent()" class="btn btn-outline-info">Search</button>
+          <button (click)="getAllevents()" class="btn btn-outline-info">Show all</button>
+      </form>
+  </div>
   <div *ngFor= "let e of events" class="event">
     <div class="date">
       <p>{{e.date | date: 'MMM d'}}</p>

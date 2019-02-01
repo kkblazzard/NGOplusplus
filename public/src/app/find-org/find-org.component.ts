@@ -9,9 +9,9 @@ import { HttpService } from '../http.service';
 export class FindOrgComponent implements OnInit {
 
   constructor(private _httpService: HttpService) { }
-
+  searchError:any;
   orgs:any;
-
+  orgSearch:any={title:""};
   ngOnInit() {
     this.getAllOrgs();
   }
@@ -23,4 +23,15 @@ export class FindOrgComponent implements OnInit {
       console.log("orgs set to passable variable orgs",this.orgs);
     });
   };
+  searchaOrg(){
+    this._httpService.postOrgName({'title':{"$regex":this.orgSearch.title,"$options":"i"}})
+    .subscribe(org=>{
+      if(org['error']){
+        this.searchError=org['error'];
+      }
+      else{
+      this.orgs=[org];
+      }
+    });
+  }
 }
