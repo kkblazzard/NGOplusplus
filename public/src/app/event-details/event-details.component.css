@@ -20,9 +20,15 @@
 .map{
 width:40%;
 height:20%;
-
-float:right;
-margin-top:-100px;
+margin-left:30%;
+display:inline-block;
+vertical-align:top;
+}
+.detailscontainer{
+    max-width:30%;
+    margin-left:10%;
+    display:inline-block;
+    vertical-align:top;
 }
 .delete{
     background:none!important;
@@ -35,9 +41,10 @@ margin-top:-100px;
      margin-top:-10px;
 }
 .messages{
-    margin-top:10px;
+    margin-top:-20px;
+    margin-left:10px;
     max-width:40%;
-    max-height:100px;
+    max-height:200px;
     border:2px solid black;
     overflow:auto;
     

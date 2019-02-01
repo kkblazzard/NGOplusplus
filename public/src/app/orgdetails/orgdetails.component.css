@@ -43,14 +43,15 @@ footer{
 .name{
     display:inline-block;
 
-    margin-left:10%;
+    margin-left:27%;
 
 }
 .mission{
     display:inline-block;
-    margin-left:30%;
+    margin-left:20%;
     margin-top:20px;
     max-width:20%;
+    vertical-align: middle;
 
 }
 .eventcontainer{
@@ -58,6 +59,6 @@ footer{
     margin-left:5%;
 }
 /* .background{
-    background-image: url('../../assets/img/Event_background.jpg');
+    background-image: url('../../assets/img/background2.jpeg');
     background-size: cover;
 } */
