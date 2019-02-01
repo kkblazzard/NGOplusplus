@@ -1,5 +1,5 @@
 <div class="title">
-<h1>Register your Organization</h1>
+<h1>Update Organization Information</h1>
 </div>
 <div class="delete">
     <button (click)="delete()" class="btn btn-outline-danger">Delete</button>
@@ -19,7 +19,7 @@
     
       <br>
       <br>
-<form (submit)="newOrgSubmission()" class="postForm form-horizontal">
+<form (submit)="updateOrgSubmission()" class="postForm form-horizontal">
   <div *ngIf="step1==true">
     <div class="form-group">
     <label class="col-md-4 control-label">Organisation Name:</label>
@@ -112,7 +112,7 @@
 </div>
 <div class="buttons col-md-6">
     <button (click)="step2switch()" class="btn btn-primary"><i class="fas fa-arrow-left"></i>Previous</button>
-    <button class="btn btn-success">Update</button>
+    <button class="btn btn-success" >Update</button>
   </div>
     
   </div>

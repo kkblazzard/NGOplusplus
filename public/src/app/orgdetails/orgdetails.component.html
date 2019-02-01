@@ -1,7 +1,7 @@
 
 <div class="background" *ngIf="org">
   <div  class="logodiv"> 
-    <img class="logo" [src]="org.logo | safe">
+    <img style="height:150px" class="logo" [src]="org.logo | safe">
   </div>
   <div class="name"> 
     <h1>{{org.name}}</h1>
@@ -10,7 +10,7 @@
     <h3>Our Mission:</h3>
     <h4 >{{org.mission}}</h4>
   </div>
-  
+
   <!-- BUTTON/LINK TO GO TO CREATE EVENT PAGE -->
   <div *ngIf="admin==true">
     <a class="btn btn-outline-primary" [routerLink]="['/event/new/' + id]">New Event</a>
@@ -36,7 +36,7 @@
   <div  *ngFor="let e of events" > 
     <div class="eventcontainer">
       <div  class="image">
-        <img class="photo" [src]="e.photo">
+        <img style="height:150px" class="photo" [src]="e.photo">
       </div>
       <div class="details">
         <a [routerLink]="['/event',e._id]"><h1>{{e.title}}</h1></a>
