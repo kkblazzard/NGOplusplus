@@ -13,10 +13,12 @@ footer{
 }
 .footaddress{
     display:inline-block;
+    vertical-align: bottom;
 }
 .footcontact{
-    margin-top:5%;
-    float:right;
+    display:inline-block;
+    vertical-align: bottom;
+    margin-left:60%;
 }
 .events{
     margin-top:2%;
