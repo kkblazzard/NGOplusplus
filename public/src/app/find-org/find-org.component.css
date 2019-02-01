@@ -4,13 +4,14 @@
     }
     
     .event{
-        width:20%;
-        height:150px;
+        width: 35%;
+        height: 178px;
         display:inline-block;
         vertical-align:top;
         border:2px solid rgb(78, 76, 76);
         margin-left:10%;
         margin-top:3%;
+        overflow: scroll;
     }
     .event:hover{
 
