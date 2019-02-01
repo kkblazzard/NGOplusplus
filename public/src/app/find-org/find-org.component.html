@@ -13,10 +13,9 @@
     <br>
     <div class="event" *ngFor= "let o of orgs" [routerLink]="['/orgs','details',o._id]">
       <img class="logo" [src]="o.logo">
-      <div style="display: inline-block; text-align: center;">
+      <div style=" display: inline-block; text-align: center;">
         <h4 class="font-weight-bold">{{o.name}}</h4>
         <p class="text-secondary">{{o.city}}, {{o.state}}</p>
       </div>
-      <hr>
     </div>
   </div>
