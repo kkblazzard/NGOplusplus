@@ -42,3 +42,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+.vagrant
+bootstrap.sh
+VagrantFile
+bower_components/
+
+package-lock.json

@@ -11,6 +11,7 @@
           <button (click)="getAllevents()" class="btn btn-outline-info">Show all</button>
       </form>
   </div>
+  <div class="hold">
   <div *ngFor= "let e of events" class="event">
     <div class="date">
       <p>{{e.date | date: 'MMM d'}}</p>
@@ -22,5 +23,6 @@
       <p>{{e.details}}</p> 
     </div>
   </div>
+</div>
 </div>
 
