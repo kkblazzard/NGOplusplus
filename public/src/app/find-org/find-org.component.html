@@ -2,6 +2,7 @@
   <div class="title">
     <h2>List of Orgs</h2>
   </div>
+  
     <div id="orgsearch" class="searchOrg">
         <form  class="postForm">
             <label class="search">Search for Organization by name</label>
@@ -10,6 +11,7 @@
             <button (click)="getAllOrgs()" class="btn btn-outline-info">Show all</button>
         </form>
     </div>
+    <div class="hold">
     <br>
     <div class="event" *ngFor= "let o of orgs" [routerLink]="['/orgs','details',o._id]">
       <img class="logo" [src]="o.logo">
@@ -18,4 +20,5 @@
         <p class="text-secondary">{{o.city}}, {{o.state}}</p>
       </div>
     </div>
+  </div>
   </div>

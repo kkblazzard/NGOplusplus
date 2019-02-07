@@ -1,27 +1,30 @@
 .logo{
     max-height:150px;
     max-width:100px
-    }
-    
-    .event{
-        width: 35%;
-        height: 178px;
-        display:inline-block;
-        vertical-align:top;
-        border:2px solid rgb(78, 76, 76);
-        margin-left:10%;
-        margin-top:3%;
-        overflow: scroll;
-    }
-    .event:hover{
+}
+.hold{
+    height:400px;
+    overflow: auto;
+}
+.event{
+    width: 35%;
+    height: 178px;
+    display:inline-block;
+    vertical-align:top;
+    border:2px solid rgb(78, 76, 76);
+    margin-left:10%;
+    margin-top:3%;
+    overflow: scroll;
+}
+.event:hover{
 
-        background-color: rgb(78, 76, 76);
-    }
-    .title{
-        display:inline-block;
-    }
-    .searchOrg{
-        display:inline-block;
-        float:right;
-        margin-right:10%;
-    }
+    background-color: rgb(78, 76, 76);
+}
+.title{
+    display:inline-block;
+}
+.searchOrg{
+    display:inline-block;
+    float:right;
+    margin-right:10%;
+}
