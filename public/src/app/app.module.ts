@@ -18,6 +18,8 @@ import { SafePipe } from './safepipe';
 import { HeaderComponent } from './header/header.component';
 import { EditOrgComponent } from './edit-org/edit-org.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
+import { PaymentsComponent } from './payments/payments.component';
+import { Module as StripeModule } from "stripe-angular";
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     HeaderComponent,
     EditOrgComponent,
     EditEventComponent,
+    PaymentsComponent,
  
 
 
@@ -43,7 +46,8 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    StripeModule.forRoot()
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
